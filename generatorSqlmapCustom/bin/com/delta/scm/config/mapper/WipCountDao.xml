@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.delta.scm.config.dao.WipCountDao">
+  <resultMap id="BaseResultMap" type="com.delta.scm.config.entity.WipCountEntity">
+    <result column="PDLINENO" jdbcType="VARCHAR" property="pdlineno" />
+    <result column="MONO" jdbcType="VARCHAR" property="mono" />
+    <result column="SHIFTNO" jdbcType="VARCHAR" property="shiftno" />
+    <result column="OPNO" jdbcType="VARCHAR" property="opno" />
+    <result column="CURQTY" jdbcType="DECIMAL" property="curqty" />
+    <result column="TARGETQTY" jdbcType="DECIMAL" property="targetqty" />
+    <result column="GOALRATE" jdbcType="DECIMAL" property="goalrate" />
+    <result column="UNITRUNTIME" jdbcType="DECIMAL" property="unitruntime" />
+    <result column="SUMCURQTY" jdbcType="DECIMAL" property="sumcurqty" />
+    <result column="SUMTARGETQTY" jdbcType="DECIMAL" property="sumtargetqty" />
+    <result column="SUMGOALRATE" jdbcType="DECIMAL" property="sumgoalrate" />
+    <result column="STARTTIME" jdbcType="DATE" property="starttime" />
+    <result column="USERCOUNT" jdbcType="DECIMAL" property="usercount" />
+    <result column="ENDTIME" jdbcType="DATE" property="endtime" />
+    <result column="LOGOUTTIME" jdbcType="DATE" property="logouttime" />
+    <result column="LOGOUTEXCEPTIONTIME" jdbcType="DECIMAL" property="logoutexceptiontime" />
+    <result column="SETUPTIME" jdbcType="DECIMAL" property="setuptime" />
+    <result column="STDSETUPTIME" jdbcType="DECIMAL" property="stdsetuptime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.delta.scm.config.entity.WipCountEntity">
+    insert into TBLWIPCOUNTERLOG (PDLINENO, MONO, SHIFTNO, 
+      OPNO, CURQTY, TARGETQTY, 
+      GOALRATE, UNITRUNTIME, SUMCURQTY, 
+      SUMTARGETQTY, SUMGOALRATE, STARTTIME, 
+      USERCOUNT, ENDTIME, LOGOUTTIME, 
+      LOGOUTEXCEPTIONTIME, SETUPTIME, STDSETUPTIME
+      )
+    values (#{pdlineno,jdbcType=VARCHAR}, #{mono,jdbcType=VARCHAR}, #{shiftno,jdbcType=VARCHAR}, 
+      #{opno,jdbcType=VARCHAR}, #{curqty,jdbcType=DECIMAL}, #{targetqty,jdbcType=DECIMAL}, 
+      #{goalrate,jdbcType=DECIMAL}, #{unitruntime,jdbcType=DECIMAL}, #{sumcurqty,jdbcType=DECIMAL}, 
+      #{sumtargetqty,jdbcType=DECIMAL}, #{sumgoalrate,jdbcType=DECIMAL}, #{starttime,jdbcType=DATE}, 
+      #{usercount,jdbcType=DECIMAL}, #{endtime,jdbcType=DATE}, #{logouttime,jdbcType=DATE}, 
+      #{logoutexceptiontime,jdbcType=DECIMAL}, #{setuptime,jdbcType=DECIMAL}, #{stdsetuptime,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.delta.scm.config.entity.WipCountEntity">
+    insert into TBLWIPCOUNTERLOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pdlineno != null">
+        PDLINENO,
+      </if>
+      <if test="mono != null">
+        MONO,
+      </if>
+      <if test="shiftno != null">
+        SHIFTNO,
+      </if>
+      <if test="opno != null">
+        OPNO,
+      </if>
+      <if test="curqty != null">
+        CURQTY,
+      </if>
+      <if test="targetqty != null">
+        TARGETQTY,
+      </if>
+      <if test="goalrate != null">
+        GOALRATE,
+      </if>
+      <if test="unitruntime != null">
+        UNITRUNTIME,
+      </if>
+      <if test="sumcurqty != null">
+        SUMCURQTY,
+      </if>
+      <if test="sumtargetqty != null">
+        SUMTARGETQTY,
+      </if>
+      <if test="sumgoalrate != null">
+        SUMGOALRATE,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="usercount != null">
+        USERCOUNT,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="logouttime != null">
+        LOGOUTTIME,
+      </if>
+      <if test="logoutexceptiontime != null">
+        LOGOUTEXCEPTIONTIME,
+      </if>
+      <if test="setuptime != null">
+        SETUPTIME,
+      </if>
+      <if test="stdsetuptime != null">
+        STDSETUPTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pdlineno != null">
+        #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        #{mono,jdbcType=VARCHAR},
+      </if>
+      <if test="shiftno != null">
+        #{shiftno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="curqty != null">
+        #{curqty,jdbcType=DECIMAL},
+      </if>
+      <if test="targetqty != null">
+        #{targetqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goalrate != null">
+        #{goalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="unitruntime != null">
+        #{unitruntime,jdbcType=DECIMAL},
+      </if>
+      <if test="sumcurqty != null">
+        #{sumcurqty,jdbcType=DECIMAL},
+      </if>
+      <if test="sumtargetqty != null">
+        #{sumtargetqty,jdbcType=DECIMAL},
+      </if>
+      <if test="sumgoalrate != null">
+        #{sumgoalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=DATE},
+      </if>
+      <if test="usercount != null">
+        #{usercount,jdbcType=DECIMAL},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="logouttime != null">
+        #{logouttime,jdbcType=DATE},
+      </if>
+      <if test="logoutexceptiontime != null">
+        #{logoutexceptiontime,jdbcType=DECIMAL},
+      </if>
+      <if test="setuptime != null">
+        #{setuptime,jdbcType=DECIMAL},
+      </if>
+      <if test="stdsetuptime != null">
+        #{stdsetuptime,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.delta.scm.config.entity.WipCountEntity">
+    <result column="PDLINENO" jdbcType="VARCHAR" property="pdlineno" />
+    <result column="MONO" jdbcType="VARCHAR" property="mono" />
+    <result column="SHIFTNO" jdbcType="VARCHAR" property="shiftno" />
+    <result column="OPNO" jdbcType="VARCHAR" property="opno" />
+    <result column="CURQTY" jdbcType="DECIMAL" property="curqty" />
+    <result column="TARGETQTY" jdbcType="DECIMAL" property="targetqty" />
+    <result column="GOALRATE" jdbcType="DECIMAL" property="goalrate" />
+    <result column="UNITRUNTIME" jdbcType="DECIMAL" property="unitruntime" />
+    <result column="SUMCURQTY" jdbcType="DECIMAL" property="sumcurqty" />
+    <result column="SUMTARGETQTY" jdbcType="DECIMAL" property="sumtargetqty" />
+    <result column="SUMGOALRATE" jdbcType="DECIMAL" property="sumgoalrate" />
+    <result column="STARTTIME" jdbcType="DATE" property="starttime" />
+    <result column="USERCOUNT" jdbcType="DECIMAL" property="usercount" />
+    <result column="ENDTIME" jdbcType="DATE" property="endtime" />
+    <result column="LOGOUTTIME" jdbcType="DATE" property="logouttime" />
+    <result column="LOGOUTEXCEPTIONTIME" jdbcType="DECIMAL" property="logoutexceptiontime" />
+    <result column="SETUPTIME" jdbcType="DECIMAL" property="setuptime" />
+    <result column="STDSETUPTIME" jdbcType="DECIMAL" property="stdsetuptime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.delta.scm.config.entity.WipCountEntity">
+    insert into TBLWIPCOUNTERLOG (PDLINENO, MONO, SHIFTNO, 
+      OPNO, CURQTY, TARGETQTY, 
+      GOALRATE, UNITRUNTIME, SUMCURQTY, 
+      SUMTARGETQTY, SUMGOALRATE, STARTTIME, 
+      USERCOUNT, ENDTIME, LOGOUTTIME, 
+      LOGOUTEXCEPTIONTIME, SETUPTIME, STDSETUPTIME
+      )
+    values (#{pdlineno,jdbcType=VARCHAR}, #{mono,jdbcType=VARCHAR}, #{shiftno,jdbcType=VARCHAR}, 
+      #{opno,jdbcType=VARCHAR}, #{curqty,jdbcType=DECIMAL}, #{targetqty,jdbcType=DECIMAL}, 
+      #{goalrate,jdbcType=DECIMAL}, #{unitruntime,jdbcType=DECIMAL}, #{sumcurqty,jdbcType=DECIMAL}, 
+      #{sumtargetqty,jdbcType=DECIMAL}, #{sumgoalrate,jdbcType=DECIMAL}, #{starttime,jdbcType=DATE}, 
+      #{usercount,jdbcType=DECIMAL}, #{endtime,jdbcType=DATE}, #{logouttime,jdbcType=DATE}, 
+      #{logoutexceptiontime,jdbcType=DECIMAL}, #{setuptime,jdbcType=DECIMAL}, #{stdsetuptime,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.delta.scm.config.entity.WipCountEntity">
+    insert into TBLWIPCOUNTERLOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pdlineno != null">
+        PDLINENO,
+      </if>
+      <if test="mono != null">
+        MONO,
+      </if>
+      <if test="shiftno != null">
+        SHIFTNO,
+      </if>
+      <if test="opno != null">
+        OPNO,
+      </if>
+      <if test="curqty != null">
+        CURQTY,
+      </if>
+      <if test="targetqty != null">
+        TARGETQTY,
+      </if>
+      <if test="goalrate != null">
+        GOALRATE,
+      </if>
+      <if test="unitruntime != null">
+        UNITRUNTIME,
+      </if>
+      <if test="sumcurqty != null">
+        SUMCURQTY,
+      </if>
+      <if test="sumtargetqty != null">
+        SUMTARGETQTY,
+      </if>
+      <if test="sumgoalrate != null">
+        SUMGOALRATE,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="usercount != null">
+        USERCOUNT,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="logouttime != null">
+        LOGOUTTIME,
+      </if>
+      <if test="logoutexceptiontime != null">
+        LOGOUTEXCEPTIONTIME,
+      </if>
+      <if test="setuptime != null">
+        SETUPTIME,
+      </if>
+      <if test="stdsetuptime != null">
+        STDSETUPTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pdlineno != null">
+        #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        #{mono,jdbcType=VARCHAR},
+      </if>
+      <if test="shiftno != null">
+        #{shiftno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="curqty != null">
+        #{curqty,jdbcType=DECIMAL},
+      </if>
+      <if test="targetqty != null">
+        #{targetqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goalrate != null">
+        #{goalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="unitruntime != null">
+        #{unitruntime,jdbcType=DECIMAL},
+      </if>
+      <if test="sumcurqty != null">
+        #{sumcurqty,jdbcType=DECIMAL},
+      </if>
+      <if test="sumtargetqty != null">
+        #{sumtargetqty,jdbcType=DECIMAL},
+      </if>
+      <if test="sumgoalrate != null">
+        #{sumgoalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=DATE},
+      </if>
+      <if test="usercount != null">
+        #{usercount,jdbcType=DECIMAL},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="logouttime != null">
+        #{logouttime,jdbcType=DATE},
+      </if>
+      <if test="logoutexceptiontime != null">
+        #{logoutexceptiontime,jdbcType=DECIMAL},
+      </if>
+      <if test="setuptime != null">
+        #{setuptime,jdbcType=DECIMAL},
+      </if>
+      <if test="stdsetuptime != null">
+        #{stdsetuptime,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <resultMap id="BaseResultMap" type="com.delta.scm.config.entity.WipCountEntity">
+    <result column="PDLINENO" jdbcType="VARCHAR" property="pdlineno" />
+    <result column="MONO" jdbcType="VARCHAR" property="mono" />
+    <result column="SHIFTNO" jdbcType="VARCHAR" property="shiftno" />
+    <result column="OPNO" jdbcType="VARCHAR" property="opno" />
+    <result column="CURQTY" jdbcType="DECIMAL" property="curqty" />
+    <result column="TARGETQTY" jdbcType="DECIMAL" property="targetqty" />
+    <result column="GOALRATE" jdbcType="DECIMAL" property="goalrate" />
+    <result column="UNITRUNTIME" jdbcType="DECIMAL" property="unitruntime" />
+    <result column="SUMCURQTY" jdbcType="DECIMAL" property="sumcurqty" />
+    <result column="SUMTARGETQTY" jdbcType="DECIMAL" property="sumtargetqty" />
+    <result column="SUMGOALRATE" jdbcType="DECIMAL" property="sumgoalrate" />
+    <result column="STARTTIME" jdbcType="DATE" property="starttime" />
+    <result column="USERCOUNT" jdbcType="DECIMAL" property="usercount" />
+    <result column="ENDTIME" jdbcType="DATE" property="endtime" />
+    <result column="LOGOUTTIME" jdbcType="DATE" property="logouttime" />
+    <result column="LOGOUTEXCEPTIONTIME" jdbcType="DECIMAL" property="logoutexceptiontime" />
+    <result column="SETUPTIME" jdbcType="DECIMAL" property="setuptime" />
+    <result column="STDSETUPTIME" jdbcType="DECIMAL" property="stdsetuptime" />
+  </resultMap>
+  <insert id="insert" parameterType="com.delta.scm.config.entity.WipCountEntity">
+    insert into TBLWIPCOUNTERLOG (PDLINENO, MONO, SHIFTNO, 
+      OPNO, CURQTY, TARGETQTY, 
+      GOALRATE, UNITRUNTIME, SUMCURQTY, 
+      SUMTARGETQTY, SUMGOALRATE, STARTTIME, 
+      USERCOUNT, ENDTIME, LOGOUTTIME, 
+      LOGOUTEXCEPTIONTIME, SETUPTIME, STDSETUPTIME
+      )
+    values (#{pdlineno,jdbcType=VARCHAR}, #{mono,jdbcType=VARCHAR}, #{shiftno,jdbcType=VARCHAR}, 
+      #{opno,jdbcType=VARCHAR}, #{curqty,jdbcType=DECIMAL}, #{targetqty,jdbcType=DECIMAL}, 
+      #{goalrate,jdbcType=DECIMAL}, #{unitruntime,jdbcType=DECIMAL}, #{sumcurqty,jdbcType=DECIMAL}, 
+      #{sumtargetqty,jdbcType=DECIMAL}, #{sumgoalrate,jdbcType=DECIMAL}, #{starttime,jdbcType=DATE}, 
+      #{usercount,jdbcType=DECIMAL}, #{endtime,jdbcType=DATE}, #{logouttime,jdbcType=DATE}, 
+      #{logoutexceptiontime,jdbcType=DECIMAL}, #{setuptime,jdbcType=DECIMAL}, #{stdsetuptime,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.delta.scm.config.entity.WipCountEntity">
+    insert into TBLWIPCOUNTERLOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pdlineno != null">
+        PDLINENO,
+      </if>
+      <if test="mono != null">
+        MONO,
+      </if>
+      <if test="shiftno != null">
+        SHIFTNO,
+      </if>
+      <if test="opno != null">
+        OPNO,
+      </if>
+      <if test="curqty != null">
+        CURQTY,
+      </if>
+      <if test="targetqty != null">
+        TARGETQTY,
+      </if>
+      <if test="goalrate != null">
+        GOALRATE,
+      </if>
+      <if test="unitruntime != null">
+        UNITRUNTIME,
+      </if>
+      <if test="sumcurqty != null">
+        SUMCURQTY,
+      </if>
+      <if test="sumtargetqty != null">
+        SUMTARGETQTY,
+      </if>
+      <if test="sumgoalrate != null">
+        SUMGOALRATE,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="usercount != null">
+        USERCOUNT,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="logouttime != null">
+        LOGOUTTIME,
+      </if>
+      <if test="logoutexceptiontime != null">
+        LOGOUTEXCEPTIONTIME,
+      </if>
+      <if test="setuptime != null">
+        SETUPTIME,
+      </if>
+      <if test="stdsetuptime != null">
+        STDSETUPTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pdlineno != null">
+        #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        #{mono,jdbcType=VARCHAR},
+      </if>
+      <if test="shiftno != null">
+        #{shiftno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="curqty != null">
+        #{curqty,jdbcType=DECIMAL},
+      </if>
+      <if test="targetqty != null">
+        #{targetqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goalrate != null">
+        #{goalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="unitruntime != null">
+        #{unitruntime,jdbcType=DECIMAL},
+      </if>
+      <if test="sumcurqty != null">
+        #{sumcurqty,jdbcType=DECIMAL},
+      </if>
+      <if test="sumtargetqty != null">
+        #{sumtargetqty,jdbcType=DECIMAL},
+      </if>
+      <if test="sumgoalrate != null">
+        #{sumgoalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=DATE},
+      </if>
+      <if test="usercount != null">
+        #{usercount,jdbcType=DECIMAL},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="logouttime != null">
+        #{logouttime,jdbcType=DATE},
+      </if>
+      <if test="logoutexceptiontime != null">
+        #{logoutexceptiontime,jdbcType=DECIMAL},
+      </if>
+      <if test="setuptime != null">
+        #{setuptime,jdbcType=DECIMAL},
+      </if>
+      <if test="stdsetuptime != null">
+        #{stdsetuptime,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+</mapper>

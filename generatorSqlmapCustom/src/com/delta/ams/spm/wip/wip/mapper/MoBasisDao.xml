@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.delta.ams.spm.wip.wip.dao.MoBasisDao">
+  <resultMap id="BaseResultMap" type="com.delta.ams.spm.wip.wip.entity.MoBasisEntity">
+    <id column="MONO" jdbcType="VARCHAR" property="mono" />
+    <result column="RONO" jdbcType="VARCHAR" property="rono" />
+    <result column="ITEMNO" jdbcType="DECIMAL" property="itemno" />
+    <result column="MOSTATE" jdbcType="DECIMAL" property="mostate" />
+    <result column="MOQTY" jdbcType="DECIMAL" property="moqty" />
+    <result column="PRODUCTNO" jdbcType="VARCHAR" property="productno" />
+    <result column="PRODUCTVERSION" jdbcType="VARCHAR" property="productversion" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+    <result column="PLANFINISHDATE" jdbcType="DATE" property="planfinishdate" />
+    <result column="BELONGTOMONO" jdbcType="VARCHAR" property="belongtomono" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="CREATOR" jdbcType="VARCHAR" property="creator" />
+    <result column="CREATEDATE" jdbcType="DATE" property="createdate" />
+    <result column="ISSUESTATE" jdbcType="DECIMAL" property="issuestate" />
+    <result column="UNRELEASELOTQTY" jdbcType="DECIMAL" property="unreleaselotqty" />
+    <result column="MOUNITNO" jdbcType="VARCHAR" property="mounitno" />
+    <result column="LOTSERIAL" jdbcType="VARCHAR" property="lotserial" />
+    <result column="MOTYPENO" jdbcType="DECIMAL" property="motypeno" />
+    <result column="MOSOURCE" jdbcType="DECIMAL" property="mosource" />
+    <result column="ENGNO" jdbcType="VARCHAR" property="engno" />
+    <result column="ENGVERSION" jdbcType="VARCHAR" property="engversion" />
+    <result column="CUSTOMERNO" jdbcType="VARCHAR" property="customerno" />
+    <result column="INCOMINGKEY" jdbcType="VARCHAR" property="incomingkey" />
+    <result column="CUSTOMERLOTNO" jdbcType="VARCHAR" property="customerlotno" />
+    <result column="COMPONENTFROMINV" jdbcType="DECIMAL" property="componentfrominv" />
+    <result column="FACTORYNO" jdbcType="VARCHAR" property="factoryno" />
+    <result column="RETURNNO" jdbcType="VARCHAR" property="returnno" />
+    <result column="MOWIPQTY" jdbcType="DECIMAL" property="mowipqty" />
+    <result column="RELEASECHECKFLAG" jdbcType="DECIMAL" property="releasecheckflag" />
+    <result column="BOMSTATUS" jdbcType="VARCHAR" property="bomstatus" />
+    <result column="PLANSTARTDATE" jdbcType="DATE" property="planstartdate" />
+    <result column="RELEASEDATE" jdbcType="DATE" property="releasedate" />
+    <result column="PDLEVEL" jdbcType="DECIMAL" property="pdlevel" />
+    <result column="MONODESC" jdbcType="VARCHAR" property="monodesc" />
+    <result column="TRYRUNTYPE" jdbcType="VARCHAR" property="tryruntype" />
+    <result column="MRPCONTROLLER" jdbcType="VARCHAR" property="mrpcontroller" />
+    <result column="INVENTORYNO" jdbcType="VARCHAR" property="inventoryno" />
+    <result column="PCBNO" jdbcType="VARCHAR" property="pcbno" />
+    <result column="PBFREE" jdbcType="DECIMAL" property="pbfree" />
+    <result column="PCSRATE" jdbcType="DECIMAL" property="pcsrate" />
+    <result column="MPRODUCTNO" jdbcType="VARCHAR" property="mproductno" />
+    <result column="MPRODUCTVERSION" jdbcType="VARCHAR" property="mproductversion" />
+    <result column="MMOQTY" jdbcType="DECIMAL" property="mmoqty" />
+    <result column="PRODUCTTYPE" jdbcType="VARCHAR" property="producttype" />
+    <result column="PRODUCTCATEGORY" jdbcType="VARCHAR" property="productcategory" />
+    <result column="PCBTYPE" jdbcType="VARCHAR" property="pcbtype" />
+    <result column="PREPARECHECK" jdbcType="DECIMAL" property="preparecheck" />
+    <result column="PREPARECIDATE" jdbcType="DATE" property="preparecidate" />
+    <result column="PREPARECODATE" jdbcType="DATE" property="preparecodate" />
+    <result column="FINISHQTY" jdbcType="DECIMAL" property="finishqty" />
+    <result column="RMATYPE" jdbcType="DECIMAL" property="rmatype" />
+    <result column="ECNNO" jdbcType="VARCHAR" property="ecnno" />
+    <result column="PREPARECHECK_PACK" jdbcType="DECIMAL" property="preparecheckPack" />
+    <result column="TRYRUNTYPECHECK" jdbcType="DECIMAL" property="tryruntypecheck" />
+    <result column="CLOSEDATE" jdbcType="DATE" property="closedate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MONO, RONO, ITEMNO, MOSTATE, MOQTY, PRODUCTNO, PRODUCTVERSION, PRIORITY, PLANFINISHDATE, 
+    BELONGTOMONO, DESCRIPTION, CREATOR, CREATEDATE, ISSUESTATE, UNRELEASELOTQTY, MOUNITNO, 
+    LOTSERIAL, MOTYPENO, MOSOURCE, ENGNO, ENGVERSION, CUSTOMERNO, INCOMINGKEY, CUSTOMERLOTNO, 
+    COMPONENTFROMINV, FACTORYNO, RETURNNO, MOWIPQTY, RELEASECHECKFLAG, BOMSTATUS, PLANSTARTDATE, 
+    RELEASEDATE, PDLEVEL, MONODESC, TRYRUNTYPE, MRPCONTROLLER, INVENTORYNO, PCBNO, PBFREE, 
+    PCSRATE, MPRODUCTNO, MPRODUCTVERSION, MMOQTY, PRODUCTTYPE, PRODUCTCATEGORY, PCBTYPE, 
+    PREPARECHECK, PREPARECIDATE, PREPARECODATE, FINISHQTY, RMATYPE, ECNNO, PREPARECHECK_PACK, 
+    TRYRUNTYPECHECK, CLOSEDATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TBLOEMOBASIS
+    where MONO = #{mono,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TBLOEMOBASIS
+    where MONO = #{mono,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.delta.ams.spm.wip.wip.entity.MoBasisEntity">
+    insert into TBLOEMOBASIS (MONO, RONO, ITEMNO, 
+      MOSTATE, MOQTY, PRODUCTNO, 
+      PRODUCTVERSION, PRIORITY, PLANFINISHDATE, 
+      BELONGTOMONO, DESCRIPTION, CREATOR, 
+      CREATEDATE, ISSUESTATE, UNRELEASELOTQTY, 
+      MOUNITNO, LOTSERIAL, MOTYPENO, 
+      MOSOURCE, ENGNO, ENGVERSION, 
+      CUSTOMERNO, INCOMINGKEY, CUSTOMERLOTNO, 
+      COMPONENTFROMINV, FACTORYNO, RETURNNO, 
+      MOWIPQTY, RELEASECHECKFLAG, BOMSTATUS, 
+      PLANSTARTDATE, RELEASEDATE, PDLEVEL, 
+      MONODESC, TRYRUNTYPE, MRPCONTROLLER, 
+      INVENTORYNO, PCBNO, PBFREE, 
+      PCSRATE, MPRODUCTNO, MPRODUCTVERSION, 
+      MMOQTY, PRODUCTTYPE, PRODUCTCATEGORY, 
+      PCBTYPE, PREPARECHECK, PREPARECIDATE, 
+      PREPARECODATE, FINISHQTY, RMATYPE, 
+      ECNNO, PREPARECHECK_PACK, TRYRUNTYPECHECK, 
+      CLOSEDATE)
+    values (#{mono,jdbcType=VARCHAR}, #{rono,jdbcType=VARCHAR}, #{itemno,jdbcType=DECIMAL}, 
+      #{mostate,jdbcType=DECIMAL}, #{moqty,jdbcType=DECIMAL}, #{productno,jdbcType=VARCHAR}, 
+      #{productversion,jdbcType=VARCHAR}, #{priority,jdbcType=DECIMAL}, #{planfinishdate,jdbcType=DATE}, 
+      #{belongtomono,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=DATE}, #{issuestate,jdbcType=DECIMAL}, #{unreleaselotqty,jdbcType=DECIMAL}, 
+      #{mounitno,jdbcType=VARCHAR}, #{lotserial,jdbcType=VARCHAR}, #{motypeno,jdbcType=DECIMAL}, 
+      #{mosource,jdbcType=DECIMAL}, #{engno,jdbcType=VARCHAR}, #{engversion,jdbcType=VARCHAR}, 
+      #{customerno,jdbcType=VARCHAR}, #{incomingkey,jdbcType=VARCHAR}, #{customerlotno,jdbcType=VARCHAR}, 
+      #{componentfrominv,jdbcType=DECIMAL}, #{factoryno,jdbcType=VARCHAR}, #{returnno,jdbcType=VARCHAR}, 
+      #{mowipqty,jdbcType=DECIMAL}, #{releasecheckflag,jdbcType=DECIMAL}, #{bomstatus,jdbcType=VARCHAR}, 
+      #{planstartdate,jdbcType=DATE}, #{releasedate,jdbcType=DATE}, #{pdlevel,jdbcType=DECIMAL}, 
+      #{monodesc,jdbcType=VARCHAR}, #{tryruntype,jdbcType=VARCHAR}, #{mrpcontroller,jdbcType=VARCHAR}, 
+      #{inventoryno,jdbcType=VARCHAR}, #{pcbno,jdbcType=VARCHAR}, #{pbfree,jdbcType=DECIMAL}, 
+      #{pcsrate,jdbcType=DECIMAL}, #{mproductno,jdbcType=VARCHAR}, #{mproductversion,jdbcType=VARCHAR}, 
+      #{mmoqty,jdbcType=DECIMAL}, #{producttype,jdbcType=VARCHAR}, #{productcategory,jdbcType=VARCHAR}, 
+      #{pcbtype,jdbcType=VARCHAR}, #{preparecheck,jdbcType=DECIMAL}, #{preparecidate,jdbcType=DATE}, 
+      #{preparecodate,jdbcType=DATE}, #{finishqty,jdbcType=DECIMAL}, #{rmatype,jdbcType=DECIMAL}, 
+      #{ecnno,jdbcType=VARCHAR}, #{preparecheckPack,jdbcType=DECIMAL}, #{tryruntypecheck,jdbcType=DECIMAL}, 
+      #{closedate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.delta.ams.spm.wip.wip.entity.MoBasisEntity">
+    insert into TBLOEMOBASIS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mono != null">
+        MONO,
+      </if>
+      <if test="rono != null">
+        RONO,
+      </if>
+      <if test="itemno != null">
+        ITEMNO,
+      </if>
+      <if test="mostate != null">
+        MOSTATE,
+      </if>
+      <if test="moqty != null">
+        MOQTY,
+      </if>
+      <if test="productno != null">
+        PRODUCTNO,
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+      <if test="planfinishdate != null">
+        PLANFINISHDATE,
+      </if>
+      <if test="belongtomono != null">
+        BELONGTOMONO,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="issuestate != null">
+        ISSUESTATE,
+      </if>
+      <if test="unreleaselotqty != null">
+        UNRELEASELOTQTY,
+      </if>
+      <if test="mounitno != null">
+        MOUNITNO,
+      </if>
+      <if test="lotserial != null">
+        LOTSERIAL,
+      </if>
+      <if test="motypeno != null">
+        MOTYPENO,
+      </if>
+      <if test="mosource != null">
+        MOSOURCE,
+      </if>
+      <if test="engno != null">
+        ENGNO,
+      </if>
+      <if test="engversion != null">
+        ENGVERSION,
+      </if>
+      <if test="customerno != null">
+        CUSTOMERNO,
+      </if>
+      <if test="incomingkey != null">
+        INCOMINGKEY,
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO,
+      </if>
+      <if test="componentfrominv != null">
+        COMPONENTFROMINV,
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO,
+      </if>
+      <if test="returnno != null">
+        RETURNNO,
+      </if>
+      <if test="mowipqty != null">
+        MOWIPQTY,
+      </if>
+      <if test="releasecheckflag != null">
+        RELEASECHECKFLAG,
+      </if>
+      <if test="bomstatus != null">
+        BOMSTATUS,
+      </if>
+      <if test="planstartdate != null">
+        PLANSTARTDATE,
+      </if>
+      <if test="releasedate != null">
+        RELEASEDATE,
+      </if>
+      <if test="pdlevel != null">
+        PDLEVEL,
+      </if>
+      <if test="monodesc != null">
+        MONODESC,
+      </if>
+      <if test="tryruntype != null">
+        TRYRUNTYPE,
+      </if>
+      <if test="mrpcontroller != null">
+        MRPCONTROLLER,
+      </if>
+      <if test="inventoryno != null">
+        INVENTORYNO,
+      </if>
+      <if test="pcbno != null">
+        PCBNO,
+      </if>
+      <if test="pbfree != null">
+        PBFREE,
+      </if>
+      <if test="pcsrate != null">
+        PCSRATE,
+      </if>
+      <if test="mproductno != null">
+        MPRODUCTNO,
+      </if>
+      <if test="mproductversion != null">
+        MPRODUCTVERSION,
+      </if>
+      <if test="mmoqty != null">
+        MMOQTY,
+      </if>
+      <if test="producttype != null">
+        PRODUCTTYPE,
+      </if>
+      <if test="productcategory != null">
+        PRODUCTCATEGORY,
+      </if>
+      <if test="pcbtype != null">
+        PCBTYPE,
+      </if>
+      <if test="preparecheck != null">
+        PREPARECHECK,
+      </if>
+      <if test="preparecidate != null">
+        PREPARECIDATE,
+      </if>
+      <if test="preparecodate != null">
+        PREPARECODATE,
+      </if>
+      <if test="finishqty != null">
+        FINISHQTY,
+      </if>
+      <if test="rmatype != null">
+        RMATYPE,
+      </if>
+      <if test="ecnno != null">
+        ECNNO,
+      </if>
+      <if test="preparecheckPack != null">
+        PREPARECHECK_PACK,
+      </if>
+      <if test="tryruntypecheck != null">
+        TRYRUNTYPECHECK,
+      </if>
+      <if test="closedate != null">
+        CLOSEDATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mono != null">
+        #{mono,jdbcType=VARCHAR},
+      </if>
+      <if test="rono != null">
+        #{rono,jdbcType=VARCHAR},
+      </if>
+      <if test="itemno != null">
+        #{itemno,jdbcType=DECIMAL},
+      </if>
+      <if test="mostate != null">
+        #{mostate,jdbcType=DECIMAL},
+      </if>
+      <if test="moqty != null">
+        #{moqty,jdbcType=DECIMAL},
+      </if>
+      <if test="productno != null">
+        #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="planfinishdate != null">
+        #{planfinishdate,jdbcType=DATE},
+      </if>
+      <if test="belongtomono != null">
+        #{belongtomono,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=DATE},
+      </if>
+      <if test="issuestate != null">
+        #{issuestate,jdbcType=DECIMAL},
+      </if>
+      <if test="unreleaselotqty != null">
+        #{unreleaselotqty,jdbcType=DECIMAL},
+      </if>
+      <if test="mounitno != null">
+        #{mounitno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotserial != null">
+        #{lotserial,jdbcType=VARCHAR},
+      </if>
+      <if test="motypeno != null">
+        #{motypeno,jdbcType=DECIMAL},
+      </if>
+      <if test="mosource != null">
+        #{mosource,jdbcType=DECIMAL},
+      </if>
+      <if test="engno != null">
+        #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerno != null">
+        #{customerno,jdbcType=VARCHAR},
+      </if>
+      <if test="incomingkey != null">
+        #{incomingkey,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="componentfrominv != null">
+        #{componentfrominv,jdbcType=DECIMAL},
+      </if>
+      <if test="factoryno != null">
+        #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="returnno != null">
+        #{returnno,jdbcType=VARCHAR},
+      </if>
+      <if test="mowipqty != null">
+        #{mowipqty,jdbcType=DECIMAL},
+      </if>
+      <if test="releasecheckflag != null">
+        #{releasecheckflag,jdbcType=DECIMAL},
+      </if>
+      <if test="bomstatus != null">
+        #{bomstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="planstartdate != null">
+        #{planstartdate,jdbcType=DATE},
+      </if>
+      <if test="releasedate != null">
+        #{releasedate,jdbcType=DATE},
+      </if>
+      <if test="pdlevel != null">
+        #{pdlevel,jdbcType=DECIMAL},
+      </if>
+      <if test="monodesc != null">
+        #{monodesc,jdbcType=VARCHAR},
+      </if>
+      <if test="tryruntype != null">
+        #{tryruntype,jdbcType=VARCHAR},
+      </if>
+      <if test="mrpcontroller != null">
+        #{mrpcontroller,jdbcType=VARCHAR},
+      </if>
+      <if test="inventoryno != null">
+        #{inventoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="pcbno != null">
+        #{pcbno,jdbcType=VARCHAR},
+      </if>
+      <if test="pbfree != null">
+        #{pbfree,jdbcType=DECIMAL},
+      </if>
+      <if test="pcsrate != null">
+        #{pcsrate,jdbcType=DECIMAL},
+      </if>
+      <if test="mproductno != null">
+        #{mproductno,jdbcType=VARCHAR},
+      </if>
+      <if test="mproductversion != null">
+        #{mproductversion,jdbcType=VARCHAR},
+      </if>
+      <if test="mmoqty != null">
+        #{mmoqty,jdbcType=DECIMAL},
+      </if>
+      <if test="producttype != null">
+        #{producttype,jdbcType=VARCHAR},
+      </if>
+      <if test="productcategory != null">
+        #{productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="pcbtype != null">
+        #{pcbtype,jdbcType=VARCHAR},
+      </if>
+      <if test="preparecheck != null">
+        #{preparecheck,jdbcType=DECIMAL},
+      </if>
+      <if test="preparecidate != null">
+        #{preparecidate,jdbcType=DATE},
+      </if>
+      <if test="preparecodate != null">
+        #{preparecodate,jdbcType=DATE},
+      </if>
+      <if test="finishqty != null">
+        #{finishqty,jdbcType=DECIMAL},
+      </if>
+      <if test="rmatype != null">
+        #{rmatype,jdbcType=DECIMAL},
+      </if>
+      <if test="ecnno != null">
+        #{ecnno,jdbcType=VARCHAR},
+      </if>
+      <if test="preparecheckPack != null">
+        #{preparecheckPack,jdbcType=DECIMAL},
+      </if>
+      <if test="tryruntypecheck != null">
+        #{tryruntypecheck,jdbcType=DECIMAL},
+      </if>
+      <if test="closedate != null">
+        #{closedate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.delta.ams.spm.wip.wip.entity.MoBasisEntity">
+    update TBLOEMOBASIS
+    <set>
+      <if test="rono != null">
+        RONO = #{rono,jdbcType=VARCHAR},
+      </if>
+      <if test="itemno != null">
+        ITEMNO = #{itemno,jdbcType=DECIMAL},
+      </if>
+      <if test="mostate != null">
+        MOSTATE = #{mostate,jdbcType=DECIMAL},
+      </if>
+      <if test="moqty != null">
+        MOQTY = #{moqty,jdbcType=DECIMAL},
+      </if>
+      <if test="productno != null">
+        PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="planfinishdate != null">
+        PLANFINISHDATE = #{planfinishdate,jdbcType=DATE},
+      </if>
+      <if test="belongtomono != null">
+        BELONGTOMONO = #{belongtomono,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=DATE},
+      </if>
+      <if test="issuestate != null">
+        ISSUESTATE = #{issuestate,jdbcType=DECIMAL},
+      </if>
+      <if test="unreleaselotqty != null">
+        UNRELEASELOTQTY = #{unreleaselotqty,jdbcType=DECIMAL},
+      </if>
+      <if test="mounitno != null">
+        MOUNITNO = #{mounitno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotserial != null">
+        LOTSERIAL = #{lotserial,jdbcType=VARCHAR},
+      </if>
+      <if test="motypeno != null">
+        MOTYPENO = #{motypeno,jdbcType=DECIMAL},
+      </if>
+      <if test="mosource != null">
+        MOSOURCE = #{mosource,jdbcType=DECIMAL},
+      </if>
+      <if test="engno != null">
+        ENGNO = #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerno != null">
+        CUSTOMERNO = #{customerno,jdbcType=VARCHAR},
+      </if>
+      <if test="incomingkey != null">
+        INCOMINGKEY = #{incomingkey,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="componentfrominv != null">
+        COMPONENTFROMINV = #{componentfrominv,jdbcType=DECIMAL},
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="returnno != null">
+        RETURNNO = #{returnno,jdbcType=VARCHAR},
+      </if>
+      <if test="mowipqty != null">
+        MOWIPQTY = #{mowipqty,jdbcType=DECIMAL},
+      </if>
+      <if test="releasecheckflag != null">
+        RELEASECHECKFLAG = #{releasecheckflag,jdbcType=DECIMAL},
+      </if>
+      <if test="bomstatus != null">
+        BOMSTATUS = #{bomstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="planstartdate != null">
+        PLANSTARTDATE = #{planstartdate,jdbcType=DATE},
+      </if>
+      <if test="releasedate != null">
+        RELEASEDATE = #{releasedate,jdbcType=DATE},
+      </if>
+      <if test="pdlevel != null">
+        PDLEVEL = #{pdlevel,jdbcType=DECIMAL},
+      </if>
+      <if test="monodesc != null">
+        MONODESC = #{monodesc,jdbcType=VARCHAR},
+      </if>
+      <if test="tryruntype != null">
+        TRYRUNTYPE = #{tryruntype,jdbcType=VARCHAR},
+      </if>
+      <if test="mrpcontroller != null">
+        MRPCONTROLLER = #{mrpcontroller,jdbcType=VARCHAR},
+      </if>
+      <if test="inventoryno != null">
+        INVENTORYNO = #{inventoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="pcbno != null">
+        PCBNO = #{pcbno,jdbcType=VARCHAR},
+      </if>
+      <if test="pbfree != null">
+        PBFREE = #{pbfree,jdbcType=DECIMAL},
+      </if>
+      <if test="pcsrate != null">
+        PCSRATE = #{pcsrate,jdbcType=DECIMAL},
+      </if>
+      <if test="mproductno != null">
+        MPRODUCTNO = #{mproductno,jdbcType=VARCHAR},
+      </if>
+      <if test="mproductversion != null">
+        MPRODUCTVERSION = #{mproductversion,jdbcType=VARCHAR},
+      </if>
+      <if test="mmoqty != null">
+        MMOQTY = #{mmoqty,jdbcType=DECIMAL},
+      </if>
+      <if test="producttype != null">
+        PRODUCTTYPE = #{producttype,jdbcType=VARCHAR},
+      </if>
+      <if test="productcategory != null">
+        PRODUCTCATEGORY = #{productcategory,jdbcType=VARCHAR},
+      </if>
+      <if test="pcbtype != null">
+        PCBTYPE = #{pcbtype,jdbcType=VARCHAR},
+      </if>
+      <if test="preparecheck != null">
+        PREPARECHECK = #{preparecheck,jdbcType=DECIMAL},
+      </if>
+      <if test="preparecidate != null">
+        PREPARECIDATE = #{preparecidate,jdbcType=DATE},
+      </if>
+      <if test="preparecodate != null">
+        PREPARECODATE = #{preparecodate,jdbcType=DATE},
+      </if>
+      <if test="finishqty != null">
+        FINISHQTY = #{finishqty,jdbcType=DECIMAL},
+      </if>
+      <if test="rmatype != null">
+        RMATYPE = #{rmatype,jdbcType=DECIMAL},
+      </if>
+      <if test="ecnno != null">
+        ECNNO = #{ecnno,jdbcType=VARCHAR},
+      </if>
+      <if test="preparecheckPack != null">
+        PREPARECHECK_PACK = #{preparecheckPack,jdbcType=DECIMAL},
+      </if>
+      <if test="tryruntypecheck != null">
+        TRYRUNTYPECHECK = #{tryruntypecheck,jdbcType=DECIMAL},
+      </if>
+      <if test="closedate != null">
+        CLOSEDATE = #{closedate,jdbcType=DATE},
+      </if>
+    </set>
+    where MONO = #{mono,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.delta.ams.spm.wip.wip.entity.MoBasisEntity">
+    update TBLOEMOBASIS
+    set RONO = #{rono,jdbcType=VARCHAR},
+      ITEMNO = #{itemno,jdbcType=DECIMAL},
+      MOSTATE = #{mostate,jdbcType=DECIMAL},
+      MOQTY = #{moqty,jdbcType=DECIMAL},
+      PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      PRIORITY = #{priority,jdbcType=DECIMAL},
+      PLANFINISHDATE = #{planfinishdate,jdbcType=DATE},
+      BELONGTOMONO = #{belongtomono,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=DATE},
+      ISSUESTATE = #{issuestate,jdbcType=DECIMAL},
+      UNRELEASELOTQTY = #{unreleaselotqty,jdbcType=DECIMAL},
+      MOUNITNO = #{mounitno,jdbcType=VARCHAR},
+      LOTSERIAL = #{lotserial,jdbcType=VARCHAR},
+      MOTYPENO = #{motypeno,jdbcType=DECIMAL},
+      MOSOURCE = #{mosource,jdbcType=DECIMAL},
+      ENGNO = #{engno,jdbcType=VARCHAR},
+      ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      CUSTOMERNO = #{customerno,jdbcType=VARCHAR},
+      INCOMINGKEY = #{incomingkey,jdbcType=VARCHAR},
+      CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      COMPONENTFROMINV = #{componentfrominv,jdbcType=DECIMAL},
+      FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      RETURNNO = #{returnno,jdbcType=VARCHAR},
+      MOWIPQTY = #{mowipqty,jdbcType=DECIMAL},
+      RELEASECHECKFLAG = #{releasecheckflag,jdbcType=DECIMAL},
+      BOMSTATUS = #{bomstatus,jdbcType=VARCHAR},
+      PLANSTARTDATE = #{planstartdate,jdbcType=DATE},
+      RELEASEDATE = #{releasedate,jdbcType=DATE},
+      PDLEVEL = #{pdlevel,jdbcType=DECIMAL},
+      MONODESC = #{monodesc,jdbcType=VARCHAR},
+      TRYRUNTYPE = #{tryruntype,jdbcType=VARCHAR},
+      MRPCONTROLLER = #{mrpcontroller,jdbcType=VARCHAR},
+      INVENTORYNO = #{inventoryno,jdbcType=VARCHAR},
+      PCBNO = #{pcbno,jdbcType=VARCHAR},
+      PBFREE = #{pbfree,jdbcType=DECIMAL},
+      PCSRATE = #{pcsrate,jdbcType=DECIMAL},
+      MPRODUCTNO = #{mproductno,jdbcType=VARCHAR},
+      MPRODUCTVERSION = #{mproductversion,jdbcType=VARCHAR},
+      MMOQTY = #{mmoqty,jdbcType=DECIMAL},
+      PRODUCTTYPE = #{producttype,jdbcType=VARCHAR},
+      PRODUCTCATEGORY = #{productcategory,jdbcType=VARCHAR},
+      PCBTYPE = #{pcbtype,jdbcType=VARCHAR},
+      PREPARECHECK = #{preparecheck,jdbcType=DECIMAL},
+      PREPARECIDATE = #{preparecidate,jdbcType=DATE},
+      PREPARECODATE = #{preparecodate,jdbcType=DATE},
+      FINISHQTY = #{finishqty,jdbcType=DECIMAL},
+      RMATYPE = #{rmatype,jdbcType=DECIMAL},
+      ECNNO = #{ecnno,jdbcType=VARCHAR},
+      PREPARECHECK_PACK = #{preparecheckPack,jdbcType=DECIMAL},
+      TRYRUNTYPECHECK = #{tryruntypecheck,jdbcType=DECIMAL},
+      CLOSEDATE = #{closedate,jdbcType=DATE}
+    where MONO = #{mono,jdbcType=VARCHAR}
+  </update>
+</mapper>

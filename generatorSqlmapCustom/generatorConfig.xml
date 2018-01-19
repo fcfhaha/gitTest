@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="context1">
+	  <commentGenerator>
+	<property name="suppressDate" value="true"/>
+	<property name="suppressAllComments" value="true" />
+	</commentGenerator>
+    <jdbcConnection connectionURL="jdbc:postgresql://localhost:5432/dg5scm?characterEncoding=utf8" driverClass="org.postgresql.Driver" userId="postgres" password="123456" />
+    <javaModelGenerator targetPackage="com.delta.scm.config.entity" targetProject=".\src" />
+    <sqlMapGenerator targetPackage="com.delta.scm.config.mapper" targetProject=".\src" />
+    <javaClientGenerator targetPackage="com.delta.scm.config.dao" targetProject=".\src" type="XMLMAPPER" />
+    <table  tableName="t_scm_line_config" domainObjectName="LineConfigEntity" mapperName="LineConfigDao" >
+     	<columnOverride column="machine_id" property="machineId" />
+     	<columnOverride column="machine_number" property="machineNumber" />
+      	<columnOverride column="gmt_create" property="gmtCreate" />
+     	<columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+     <table tableName="t_scm_machine" domainObjectName="MachineEntity" mapperName="MachineDao" >
+        <columnOverride column="machine_type" property="machineType" />
+        <columnOverride column="control_mode" property="controlMode" />
+        <columnOverride column="gmt_create" property="gmtCreate" />
+       <columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+    <table tableName="t_scm_pqm_info" domainObjectName="PqmInfoEntity" mapperName="PqmInfoDao" >
+      <columnOverride column="combination_number" property="combinationNumber" />
+       <columnOverride column="gmt_create" property="gmtCreate" />
+       <columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+    <table  tableName="t_scm_pqm_line_config" domainObjectName="PqmLineConfigEntity" mapperName="PqmLineConfigDao"  >
+      	<columnOverride column="pqm_info_id" property="pqmInfoId" />
+      	<columnOverride column="gmt_create" property="gmtCreate" />
+     	<columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+      
+  </context>
+</generatorConfiguration>

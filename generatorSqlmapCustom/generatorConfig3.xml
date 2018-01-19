@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="context1" >
+    <jdbcConnection connectionURL="jdbc:postgresql://localhost:5432/postgres?characterEncoding=utf8" driverClass="org.postgresql.Driver" userId="postgres" password="123456" />
+    <javaModelGenerator targetPackage="com.delta.scm.config.entity" targetProject="meu_dg5_scm_config" />
+    <sqlMapGenerator targetPackage="com.delta.scm.config.mapper" targetProject=".\src" />
+    <javaClientGenerator targetPackage="com.delta.scm.config.dao" targetProject=".\src" type="XMLMAPPER" />
+    <table  tableName="t_scm_line" domainObjectName="LineEntity" mapperName="LineDao" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+     	<columnOverride column="line_type_id" property="lineTypeId" />
+      	<columnOverride column="gmt_create" property="gmtCreate" />
+     	<columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+    <table  tableName="t_scm_line_config" domainObjectName="LineConfigEntity" mapperName="LineConfigDao"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+      	<columnOverride column="line_id" property="lineId" />
+      	<columnOverride column="gmt_create" property="gmtCreate" />
+     	<columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+    <table tableName="t_scm_line_config_detail" domainObjectName="LineConfigDetailEntity" mapperName="LineConfigDetailDao"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+      <columnOverride column="line_config_id" property="lineConfigId" />
+      <columnOverride column="machine_id" property="machineId" />
+      <columnOverride column="gmt_create" property="gmtCreate" />
+      <columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+    <table tableName="t_scm_line_type" domainObjectName="LineTypeEntity" mapperName="LineTypeDao"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+       <columnOverride column="gmt_create" property="gmtCreate" />
+       <columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+    <table tableName="t_scm_machine" domainObjectName="MachineEntity" mapperName="MachineDao" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+     	<columnOverride column="gmt_create" property="gmtCreate" />
+       <columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+    <table tableName="t_scm_pqm_config" domainObjectName="PqmConfigEntity" mapperName="PqmConfigDao" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+      <columnOverride column="line_config_id" property="lineConfigId" />
+      <columnOverride column="pqm_info_id" property="pqmInfoId" />
+      <columnOverride column="gmt_create" property="gmtCreate" />
+       <columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+    <table tableName="t_scm_pqm_info" domainObjectName="PqmInfoEntity" mapperName="PqmInfoDao" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+      <columnOverride column="line_name" property="lineName" />
+      <columnOverride column="mo_number" property="moNumber" />
+      <columnOverride column="model_name" property="modelName" />
+       <columnOverride column="op_code" property="opCode" />
+       <columnOverride column="combination_number" property="combinationNumber"></columnOverride>
+       <columnOverride column="gmt_create" property="gmtCreate" />
+       <columnOverride column="gmt_modified" property="gmtModified" />
+    </table>
+    
+  </context>
+</generatorConfiguration>

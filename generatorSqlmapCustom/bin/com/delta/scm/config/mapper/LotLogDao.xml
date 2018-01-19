@@ -1,0 +1,1916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.delta.scm.config.dao.LotLogDao">
+  <resultMap id="BaseResultMap" type="com.delta.scm.config.entity.WipLotlogReportEntity">
+    <id column="LOGGROUPSERIAL" jdbcType="VARCHAR" property="loggroupserial" />
+    <result column="BASELOTNO" jdbcType="VARCHAR" property="baselotno" />
+    <result column="LOTNO" jdbcType="VARCHAR" property="lotno" />
+    <result column="OPNO" jdbcType="VARCHAR" property="opno" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="PREOPENDTIME" jdbcType="DATE" property="preopendtime" />
+    <result column="ARRIVETIME" jdbcType="DATE" property="arrivetime" />
+    <result column="STARTTIME" jdbcType="DATE" property="starttime" />
+    <result column="ENDTIME" jdbcType="DATE" property="endtime" />
+    <result column="INPUTQTY" jdbcType="DECIMAL" property="inputqty" />
+    <result column="INPUTUNITNO" jdbcType="VARCHAR" property="inputunitno" />
+    <result column="GOODQTY" jdbcType="DECIMAL" property="goodqty" />
+    <result column="FAILQTY" jdbcType="DECIMAL" property="failqty" />
+    <result column="GOODUNITNO" jdbcType="VARCHAR" property="goodunitno" />
+    <result column="ENGNO" jdbcType="VARCHAR" property="engno" />
+    <result column="ENGVERSION" jdbcType="VARCHAR" property="engversion" />
+    <result column="RECIPENO" jdbcType="VARCHAR" property="recipeno" />
+    <result column="RECIPEVERSION" jdbcType="VARCHAR" property="recipeversion" />
+    <result column="RECIPESQL" jdbcType="VARCHAR" property="recipesql" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="FACTORYNO" jdbcType="VARCHAR" property="factoryno" />
+    <result column="MODULESERIAL" jdbcType="VARCHAR" property="moduleserial" />
+    <result column="MODULENO" jdbcType="VARCHAR" property="moduleno" />
+    <result column="MODULEVERSION" jdbcType="VARCHAR" property="moduleversion" />
+    <result column="PRODUCTNO" jdbcType="VARCHAR" property="productno" />
+    <result column="PRODUCTVERSION" jdbcType="VARCHAR" property="productversion" />
+    <result column="CUSTOMERLOTNO" jdbcType="VARCHAR" property="customerlotno" />
+    <result column="DEVICENO" jdbcType="VARCHAR" property="deviceno" />
+    <result column="AREANO" jdbcType="VARCHAR" property="areano" />
+    <result column="LOSSQTY" jdbcType="DECIMAL" property="lossqty" />
+    <result column="COMPLETEFLAG" jdbcType="DECIMAL" property="completeflag" />
+    <result column="CHECKINTIME" jdbcType="DATE" property="checkintime" />
+    <result column="CHECKOUTTIME" jdbcType="DATE" property="checkouttime" />
+    <result column="OPGROUPNO" jdbcType="VARCHAR" property="opgroupno" />
+    <result column="PDLINENO" jdbcType="VARCHAR" property="pdlineno" />
+    <result column="RI_POSITION" jdbcType="VARCHAR" property="riPosition" />
+    <result column="JIGNO" jdbcType="VARCHAR" property="jigno" />
+    <result column="MONO" jdbcType="VARCHAR" property="mono" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOGGROUPSERIAL, BASELOTNO, LOTNO, OPNO, STATUS, PREOPENDTIME, ARRIVETIME, STARTTIME, 
+    ENDTIME, INPUTQTY, INPUTUNITNO, GOODQTY, FAILQTY, GOODUNITNO, ENGNO, ENGVERSION, 
+    RECIPENO, RECIPEVERSION, RECIPESQL, NODEID, FACTORYNO, MODULESERIAL, MODULENO, MODULEVERSION, 
+    PRODUCTNO, PRODUCTVERSION, CUSTOMERLOTNO, DEVICENO, AREANO, LOSSQTY, COMPLETEFLAG, 
+    CHECKINTIME, CHECKOUTTIME, OPGROUPNO, PDLINENO, RI_POSITION, JIGNO, MONO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TBLWIPLOTLOG_REPORT
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TBLWIPLOTLOG_REPORT
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    insert into TBLWIPLOTLOG_REPORT (LOGGROUPSERIAL, BASELOTNO, LOTNO, 
+      OPNO, STATUS, PREOPENDTIME, 
+      ARRIVETIME, STARTTIME, ENDTIME, 
+      INPUTQTY, INPUTUNITNO, GOODQTY, 
+      FAILQTY, GOODUNITNO, ENGNO, 
+      ENGVERSION, RECIPENO, RECIPEVERSION, 
+      RECIPESQL, NODEID, FACTORYNO, 
+      MODULESERIAL, MODULENO, MODULEVERSION, 
+      PRODUCTNO, PRODUCTVERSION, CUSTOMERLOTNO, 
+      DEVICENO, AREANO, LOSSQTY, 
+      COMPLETEFLAG, CHECKINTIME, CHECKOUTTIME, 
+      OPGROUPNO, PDLINENO, RI_POSITION, 
+      JIGNO, MONO)
+    values (#{loggroupserial,jdbcType=VARCHAR}, #{baselotno,jdbcType=VARCHAR}, #{lotno,jdbcType=VARCHAR}, 
+      #{opno,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{preopendtime,jdbcType=DATE}, 
+      #{arrivetime,jdbcType=DATE}, #{starttime,jdbcType=DATE}, #{endtime,jdbcType=DATE}, 
+      #{inputqty,jdbcType=DECIMAL}, #{inputunitno,jdbcType=VARCHAR}, #{goodqty,jdbcType=DECIMAL}, 
+      #{failqty,jdbcType=DECIMAL}, #{goodunitno,jdbcType=VARCHAR}, #{engno,jdbcType=VARCHAR}, 
+      #{engversion,jdbcType=VARCHAR}, #{recipeno,jdbcType=VARCHAR}, #{recipeversion,jdbcType=VARCHAR}, 
+      #{recipesql,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{factoryno,jdbcType=VARCHAR}, 
+      #{moduleserial,jdbcType=VARCHAR}, #{moduleno,jdbcType=VARCHAR}, #{moduleversion,jdbcType=VARCHAR}, 
+      #{productno,jdbcType=VARCHAR}, #{productversion,jdbcType=VARCHAR}, #{customerlotno,jdbcType=VARCHAR}, 
+      #{deviceno,jdbcType=VARCHAR}, #{areano,jdbcType=VARCHAR}, #{lossqty,jdbcType=DECIMAL}, 
+      #{completeflag,jdbcType=DECIMAL}, #{checkintime,jdbcType=DATE}, #{checkouttime,jdbcType=DATE}, 
+      #{opgroupno,jdbcType=VARCHAR}, #{pdlineno,jdbcType=VARCHAR}, #{riPosition,jdbcType=VARCHAR}, 
+      #{jigno,jdbcType=VARCHAR}, #{mono,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    insert into TBLWIPLOTLOG_REPORT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loggroupserial != null">
+        LOGGROUPSERIAL,
+      </if>
+      <if test="baselotno != null">
+        BASELOTNO,
+      </if>
+      <if test="lotno != null">
+        LOTNO,
+      </if>
+      <if test="opno != null">
+        OPNO,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="preopendtime != null">
+        PREOPENDTIME,
+      </if>
+      <if test="arrivetime != null">
+        ARRIVETIME,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="inputqty != null">
+        INPUTQTY,
+      </if>
+      <if test="inputunitno != null">
+        INPUTUNITNO,
+      </if>
+      <if test="goodqty != null">
+        GOODQTY,
+      </if>
+      <if test="failqty != null">
+        FAILQTY,
+      </if>
+      <if test="goodunitno != null">
+        GOODUNITNO,
+      </if>
+      <if test="engno != null">
+        ENGNO,
+      </if>
+      <if test="engversion != null">
+        ENGVERSION,
+      </if>
+      <if test="recipeno != null">
+        RECIPENO,
+      </if>
+      <if test="recipeversion != null">
+        RECIPEVERSION,
+      </if>
+      <if test="recipesql != null">
+        RECIPESQL,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO,
+      </if>
+      <if test="moduleserial != null">
+        MODULESERIAL,
+      </if>
+      <if test="moduleno != null">
+        MODULENO,
+      </if>
+      <if test="moduleversion != null">
+        MODULEVERSION,
+      </if>
+      <if test="productno != null">
+        PRODUCTNO,
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION,
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO,
+      </if>
+      <if test="deviceno != null">
+        DEVICENO,
+      </if>
+      <if test="areano != null">
+        AREANO,
+      </if>
+      <if test="lossqty != null">
+        LOSSQTY,
+      </if>
+      <if test="completeflag != null">
+        COMPLETEFLAG,
+      </if>
+      <if test="checkintime != null">
+        CHECKINTIME,
+      </if>
+      <if test="checkouttime != null">
+        CHECKOUTTIME,
+      </if>
+      <if test="opgroupno != null">
+        OPGROUPNO,
+      </if>
+      <if test="pdlineno != null">
+        PDLINENO,
+      </if>
+      <if test="riPosition != null">
+        RI_POSITION,
+      </if>
+      <if test="jigno != null">
+        JIGNO,
+      </if>
+      <if test="mono != null">
+        MONO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loggroupserial != null">
+        #{loggroupserial,jdbcType=VARCHAR},
+      </if>
+      <if test="baselotno != null">
+        #{baselotno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotno != null">
+        #{lotno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="preopendtime != null">
+        #{preopendtime,jdbcType=DATE},
+      </if>
+      <if test="arrivetime != null">
+        #{arrivetime,jdbcType=DATE},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="inputqty != null">
+        #{inputqty,jdbcType=DECIMAL},
+      </if>
+      <if test="inputunitno != null">
+        #{inputunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodqty != null">
+        #{goodqty,jdbcType=DECIMAL},
+      </if>
+      <if test="failqty != null">
+        #{failqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goodunitno != null">
+        #{goodunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="engno != null">
+        #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeno != null">
+        #{recipeno,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeversion != null">
+        #{recipeversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipesql != null">
+        #{recipesql,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryno != null">
+        #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleserial != null">
+        #{moduleserial,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleno != null">
+        #{moduleno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleversion != null">
+        #{moduleversion,jdbcType=VARCHAR},
+      </if>
+      <if test="productno != null">
+        #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="areano != null">
+        #{areano,jdbcType=VARCHAR},
+      </if>
+      <if test="lossqty != null">
+        #{lossqty,jdbcType=DECIMAL},
+      </if>
+      <if test="completeflag != null">
+        #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="checkintime != null">
+        #{checkintime,jdbcType=DATE},
+      </if>
+      <if test="checkouttime != null">
+        #{checkouttime,jdbcType=DATE},
+      </if>
+      <if test="opgroupno != null">
+        #{opgroupno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdlineno != null">
+        #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="riPosition != null">
+        #{riPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="jigno != null">
+        #{jigno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        #{mono,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    update TBLWIPLOTLOG_REPORT
+    <set>
+      <if test="baselotno != null">
+        BASELOTNO = #{baselotno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotno != null">
+        LOTNO = #{lotno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        OPNO = #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="preopendtime != null">
+        PREOPENDTIME = #{preopendtime,jdbcType=DATE},
+      </if>
+      <if test="arrivetime != null">
+        ARRIVETIME = #{arrivetime,jdbcType=DATE},
+      </if>
+      <if test="starttime != null">
+        STARTTIME = #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        ENDTIME = #{endtime,jdbcType=DATE},
+      </if>
+      <if test="inputqty != null">
+        INPUTQTY = #{inputqty,jdbcType=DECIMAL},
+      </if>
+      <if test="inputunitno != null">
+        INPUTUNITNO = #{inputunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodqty != null">
+        GOODQTY = #{goodqty,jdbcType=DECIMAL},
+      </if>
+      <if test="failqty != null">
+        FAILQTY = #{failqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goodunitno != null">
+        GOODUNITNO = #{goodunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="engno != null">
+        ENGNO = #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeno != null">
+        RECIPENO = #{recipeno,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeversion != null">
+        RECIPEVERSION = #{recipeversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipesql != null">
+        RECIPESQL = #{recipesql,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleserial != null">
+        MODULESERIAL = #{moduleserial,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleno != null">
+        MODULENO = #{moduleno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleversion != null">
+        MODULEVERSION = #{moduleversion,jdbcType=VARCHAR},
+      </if>
+      <if test="productno != null">
+        PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="areano != null">
+        AREANO = #{areano,jdbcType=VARCHAR},
+      </if>
+      <if test="lossqty != null">
+        LOSSQTY = #{lossqty,jdbcType=DECIMAL},
+      </if>
+      <if test="completeflag != null">
+        COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="checkintime != null">
+        CHECKINTIME = #{checkintime,jdbcType=DATE},
+      </if>
+      <if test="checkouttime != null">
+        CHECKOUTTIME = #{checkouttime,jdbcType=DATE},
+      </if>
+      <if test="opgroupno != null">
+        OPGROUPNO = #{opgroupno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdlineno != null">
+        PDLINENO = #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="riPosition != null">
+        RI_POSITION = #{riPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="jigno != null">
+        JIGNO = #{jigno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        MONO = #{mono,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    update TBLWIPLOTLOG_REPORT
+    set BASELOTNO = #{baselotno,jdbcType=VARCHAR},
+      LOTNO = #{lotno,jdbcType=VARCHAR},
+      OPNO = #{opno,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      PREOPENDTIME = #{preopendtime,jdbcType=DATE},
+      ARRIVETIME = #{arrivetime,jdbcType=DATE},
+      STARTTIME = #{starttime,jdbcType=DATE},
+      ENDTIME = #{endtime,jdbcType=DATE},
+      INPUTQTY = #{inputqty,jdbcType=DECIMAL},
+      INPUTUNITNO = #{inputunitno,jdbcType=VARCHAR},
+      GOODQTY = #{goodqty,jdbcType=DECIMAL},
+      FAILQTY = #{failqty,jdbcType=DECIMAL},
+      GOODUNITNO = #{goodunitno,jdbcType=VARCHAR},
+      ENGNO = #{engno,jdbcType=VARCHAR},
+      ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      RECIPENO = #{recipeno,jdbcType=VARCHAR},
+      RECIPEVERSION = #{recipeversion,jdbcType=VARCHAR},
+      RECIPESQL = #{recipesql,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      MODULESERIAL = #{moduleserial,jdbcType=VARCHAR},
+      MODULENO = #{moduleno,jdbcType=VARCHAR},
+      MODULEVERSION = #{moduleversion,jdbcType=VARCHAR},
+      PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      AREANO = #{areano,jdbcType=VARCHAR},
+      LOSSQTY = #{lossqty,jdbcType=DECIMAL},
+      COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      CHECKINTIME = #{checkintime,jdbcType=DATE},
+      CHECKOUTTIME = #{checkouttime,jdbcType=DATE},
+      OPGROUPNO = #{opgroupno,jdbcType=VARCHAR},
+      PDLINENO = #{pdlineno,jdbcType=VARCHAR},
+      RI_POSITION = #{riPosition,jdbcType=VARCHAR},
+      JIGNO = #{jigno,jdbcType=VARCHAR},
+      MONO = #{mono,jdbcType=VARCHAR}
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.delta.scm.config.entity.WipLotlogReportEntity">
+    <id column="LOGGROUPSERIAL" jdbcType="VARCHAR" property="loggroupserial" />
+    <result column="BASELOTNO" jdbcType="VARCHAR" property="baselotno" />
+    <result column="LOTNO" jdbcType="VARCHAR" property="lotno" />
+    <result column="OPNO" jdbcType="VARCHAR" property="opno" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="PREOPENDTIME" jdbcType="DATE" property="preopendtime" />
+    <result column="ARRIVETIME" jdbcType="DATE" property="arrivetime" />
+    <result column="STARTTIME" jdbcType="DATE" property="starttime" />
+    <result column="ENDTIME" jdbcType="DATE" property="endtime" />
+    <result column="INPUTQTY" jdbcType="DECIMAL" property="inputqty" />
+    <result column="INPUTUNITNO" jdbcType="VARCHAR" property="inputunitno" />
+    <result column="GOODQTY" jdbcType="DECIMAL" property="goodqty" />
+    <result column="FAILQTY" jdbcType="DECIMAL" property="failqty" />
+    <result column="GOODUNITNO" jdbcType="VARCHAR" property="goodunitno" />
+    <result column="ENGNO" jdbcType="VARCHAR" property="engno" />
+    <result column="ENGVERSION" jdbcType="VARCHAR" property="engversion" />
+    <result column="RECIPENO" jdbcType="VARCHAR" property="recipeno" />
+    <result column="RECIPEVERSION" jdbcType="VARCHAR" property="recipeversion" />
+    <result column="RECIPESQL" jdbcType="VARCHAR" property="recipesql" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="FACTORYNO" jdbcType="VARCHAR" property="factoryno" />
+    <result column="MODULESERIAL" jdbcType="VARCHAR" property="moduleserial" />
+    <result column="MODULENO" jdbcType="VARCHAR" property="moduleno" />
+    <result column="MODULEVERSION" jdbcType="VARCHAR" property="moduleversion" />
+    <result column="PRODUCTNO" jdbcType="VARCHAR" property="productno" />
+    <result column="PRODUCTVERSION" jdbcType="VARCHAR" property="productversion" />
+    <result column="CUSTOMERLOTNO" jdbcType="VARCHAR" property="customerlotno" />
+    <result column="DEVICENO" jdbcType="VARCHAR" property="deviceno" />
+    <result column="AREANO" jdbcType="VARCHAR" property="areano" />
+    <result column="LOSSQTY" jdbcType="DECIMAL" property="lossqty" />
+    <result column="COMPLETEFLAG" jdbcType="DECIMAL" property="completeflag" />
+    <result column="CHECKINTIME" jdbcType="DATE" property="checkintime" />
+    <result column="CHECKOUTTIME" jdbcType="DATE" property="checkouttime" />
+    <result column="OPGROUPNO" jdbcType="VARCHAR" property="opgroupno" />
+    <result column="PDLINENO" jdbcType="VARCHAR" property="pdlineno" />
+    <result column="RI_POSITION" jdbcType="VARCHAR" property="riPosition" />
+    <result column="JIGNO" jdbcType="VARCHAR" property="jigno" />
+    <result column="MONO" jdbcType="VARCHAR" property="mono" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOGGROUPSERIAL, BASELOTNO, LOTNO, OPNO, STATUS, PREOPENDTIME, ARRIVETIME, STARTTIME, 
+    ENDTIME, INPUTQTY, INPUTUNITNO, GOODQTY, FAILQTY, GOODUNITNO, ENGNO, ENGVERSION, 
+    RECIPENO, RECIPEVERSION, RECIPESQL, NODEID, FACTORYNO, MODULESERIAL, MODULENO, MODULEVERSION, 
+    PRODUCTNO, PRODUCTVERSION, CUSTOMERLOTNO, DEVICENO, AREANO, LOSSQTY, COMPLETEFLAG, 
+    CHECKINTIME, CHECKOUTTIME, OPGROUPNO, PDLINENO, RI_POSITION, JIGNO, MONO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TBLWIPLOTLOG_REPORT
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TBLWIPLOTLOG_REPORT
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    insert into TBLWIPLOTLOG_REPORT (LOGGROUPSERIAL, BASELOTNO, LOTNO, 
+      OPNO, STATUS, PREOPENDTIME, 
+      ARRIVETIME, STARTTIME, ENDTIME, 
+      INPUTQTY, INPUTUNITNO, GOODQTY, 
+      FAILQTY, GOODUNITNO, ENGNO, 
+      ENGVERSION, RECIPENO, RECIPEVERSION, 
+      RECIPESQL, NODEID, FACTORYNO, 
+      MODULESERIAL, MODULENO, MODULEVERSION, 
+      PRODUCTNO, PRODUCTVERSION, CUSTOMERLOTNO, 
+      DEVICENO, AREANO, LOSSQTY, 
+      COMPLETEFLAG, CHECKINTIME, CHECKOUTTIME, 
+      OPGROUPNO, PDLINENO, RI_POSITION, 
+      JIGNO, MONO)
+    values (#{loggroupserial,jdbcType=VARCHAR}, #{baselotno,jdbcType=VARCHAR}, #{lotno,jdbcType=VARCHAR}, 
+      #{opno,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{preopendtime,jdbcType=DATE}, 
+      #{arrivetime,jdbcType=DATE}, #{starttime,jdbcType=DATE}, #{endtime,jdbcType=DATE}, 
+      #{inputqty,jdbcType=DECIMAL}, #{inputunitno,jdbcType=VARCHAR}, #{goodqty,jdbcType=DECIMAL}, 
+      #{failqty,jdbcType=DECIMAL}, #{goodunitno,jdbcType=VARCHAR}, #{engno,jdbcType=VARCHAR}, 
+      #{engversion,jdbcType=VARCHAR}, #{recipeno,jdbcType=VARCHAR}, #{recipeversion,jdbcType=VARCHAR}, 
+      #{recipesql,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{factoryno,jdbcType=VARCHAR}, 
+      #{moduleserial,jdbcType=VARCHAR}, #{moduleno,jdbcType=VARCHAR}, #{moduleversion,jdbcType=VARCHAR}, 
+      #{productno,jdbcType=VARCHAR}, #{productversion,jdbcType=VARCHAR}, #{customerlotno,jdbcType=VARCHAR}, 
+      #{deviceno,jdbcType=VARCHAR}, #{areano,jdbcType=VARCHAR}, #{lossqty,jdbcType=DECIMAL}, 
+      #{completeflag,jdbcType=DECIMAL}, #{checkintime,jdbcType=DATE}, #{checkouttime,jdbcType=DATE}, 
+      #{opgroupno,jdbcType=VARCHAR}, #{pdlineno,jdbcType=VARCHAR}, #{riPosition,jdbcType=VARCHAR}, 
+      #{jigno,jdbcType=VARCHAR}, #{mono,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    insert into TBLWIPLOTLOG_REPORT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loggroupserial != null">
+        LOGGROUPSERIAL,
+      </if>
+      <if test="baselotno != null">
+        BASELOTNO,
+      </if>
+      <if test="lotno != null">
+        LOTNO,
+      </if>
+      <if test="opno != null">
+        OPNO,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="preopendtime != null">
+        PREOPENDTIME,
+      </if>
+      <if test="arrivetime != null">
+        ARRIVETIME,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="inputqty != null">
+        INPUTQTY,
+      </if>
+      <if test="inputunitno != null">
+        INPUTUNITNO,
+      </if>
+      <if test="goodqty != null">
+        GOODQTY,
+      </if>
+      <if test="failqty != null">
+        FAILQTY,
+      </if>
+      <if test="goodunitno != null">
+        GOODUNITNO,
+      </if>
+      <if test="engno != null">
+        ENGNO,
+      </if>
+      <if test="engversion != null">
+        ENGVERSION,
+      </if>
+      <if test="recipeno != null">
+        RECIPENO,
+      </if>
+      <if test="recipeversion != null">
+        RECIPEVERSION,
+      </if>
+      <if test="recipesql != null">
+        RECIPESQL,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO,
+      </if>
+      <if test="moduleserial != null">
+        MODULESERIAL,
+      </if>
+      <if test="moduleno != null">
+        MODULENO,
+      </if>
+      <if test="moduleversion != null">
+        MODULEVERSION,
+      </if>
+      <if test="productno != null">
+        PRODUCTNO,
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION,
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO,
+      </if>
+      <if test="deviceno != null">
+        DEVICENO,
+      </if>
+      <if test="areano != null">
+        AREANO,
+      </if>
+      <if test="lossqty != null">
+        LOSSQTY,
+      </if>
+      <if test="completeflag != null">
+        COMPLETEFLAG,
+      </if>
+      <if test="checkintime != null">
+        CHECKINTIME,
+      </if>
+      <if test="checkouttime != null">
+        CHECKOUTTIME,
+      </if>
+      <if test="opgroupno != null">
+        OPGROUPNO,
+      </if>
+      <if test="pdlineno != null">
+        PDLINENO,
+      </if>
+      <if test="riPosition != null">
+        RI_POSITION,
+      </if>
+      <if test="jigno != null">
+        JIGNO,
+      </if>
+      <if test="mono != null">
+        MONO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loggroupserial != null">
+        #{loggroupserial,jdbcType=VARCHAR},
+      </if>
+      <if test="baselotno != null">
+        #{baselotno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotno != null">
+        #{lotno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="preopendtime != null">
+        #{preopendtime,jdbcType=DATE},
+      </if>
+      <if test="arrivetime != null">
+        #{arrivetime,jdbcType=DATE},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="inputqty != null">
+        #{inputqty,jdbcType=DECIMAL},
+      </if>
+      <if test="inputunitno != null">
+        #{inputunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodqty != null">
+        #{goodqty,jdbcType=DECIMAL},
+      </if>
+      <if test="failqty != null">
+        #{failqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goodunitno != null">
+        #{goodunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="engno != null">
+        #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeno != null">
+        #{recipeno,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeversion != null">
+        #{recipeversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipesql != null">
+        #{recipesql,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryno != null">
+        #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleserial != null">
+        #{moduleserial,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleno != null">
+        #{moduleno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleversion != null">
+        #{moduleversion,jdbcType=VARCHAR},
+      </if>
+      <if test="productno != null">
+        #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="areano != null">
+        #{areano,jdbcType=VARCHAR},
+      </if>
+      <if test="lossqty != null">
+        #{lossqty,jdbcType=DECIMAL},
+      </if>
+      <if test="completeflag != null">
+        #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="checkintime != null">
+        #{checkintime,jdbcType=DATE},
+      </if>
+      <if test="checkouttime != null">
+        #{checkouttime,jdbcType=DATE},
+      </if>
+      <if test="opgroupno != null">
+        #{opgroupno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdlineno != null">
+        #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="riPosition != null">
+        #{riPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="jigno != null">
+        #{jigno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        #{mono,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    update TBLWIPLOTLOG_REPORT
+    <set>
+      <if test="baselotno != null">
+        BASELOTNO = #{baselotno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotno != null">
+        LOTNO = #{lotno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        OPNO = #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="preopendtime != null">
+        PREOPENDTIME = #{preopendtime,jdbcType=DATE},
+      </if>
+      <if test="arrivetime != null">
+        ARRIVETIME = #{arrivetime,jdbcType=DATE},
+      </if>
+      <if test="starttime != null">
+        STARTTIME = #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        ENDTIME = #{endtime,jdbcType=DATE},
+      </if>
+      <if test="inputqty != null">
+        INPUTQTY = #{inputqty,jdbcType=DECIMAL},
+      </if>
+      <if test="inputunitno != null">
+        INPUTUNITNO = #{inputunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodqty != null">
+        GOODQTY = #{goodqty,jdbcType=DECIMAL},
+      </if>
+      <if test="failqty != null">
+        FAILQTY = #{failqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goodunitno != null">
+        GOODUNITNO = #{goodunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="engno != null">
+        ENGNO = #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeno != null">
+        RECIPENO = #{recipeno,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeversion != null">
+        RECIPEVERSION = #{recipeversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipesql != null">
+        RECIPESQL = #{recipesql,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleserial != null">
+        MODULESERIAL = #{moduleserial,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleno != null">
+        MODULENO = #{moduleno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleversion != null">
+        MODULEVERSION = #{moduleversion,jdbcType=VARCHAR},
+      </if>
+      <if test="productno != null">
+        PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="areano != null">
+        AREANO = #{areano,jdbcType=VARCHAR},
+      </if>
+      <if test="lossqty != null">
+        LOSSQTY = #{lossqty,jdbcType=DECIMAL},
+      </if>
+      <if test="completeflag != null">
+        COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="checkintime != null">
+        CHECKINTIME = #{checkintime,jdbcType=DATE},
+      </if>
+      <if test="checkouttime != null">
+        CHECKOUTTIME = #{checkouttime,jdbcType=DATE},
+      </if>
+      <if test="opgroupno != null">
+        OPGROUPNO = #{opgroupno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdlineno != null">
+        PDLINENO = #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="riPosition != null">
+        RI_POSITION = #{riPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="jigno != null">
+        JIGNO = #{jigno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        MONO = #{mono,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    update TBLWIPLOTLOG_REPORT
+    set BASELOTNO = #{baselotno,jdbcType=VARCHAR},
+      LOTNO = #{lotno,jdbcType=VARCHAR},
+      OPNO = #{opno,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      PREOPENDTIME = #{preopendtime,jdbcType=DATE},
+      ARRIVETIME = #{arrivetime,jdbcType=DATE},
+      STARTTIME = #{starttime,jdbcType=DATE},
+      ENDTIME = #{endtime,jdbcType=DATE},
+      INPUTQTY = #{inputqty,jdbcType=DECIMAL},
+      INPUTUNITNO = #{inputunitno,jdbcType=VARCHAR},
+      GOODQTY = #{goodqty,jdbcType=DECIMAL},
+      FAILQTY = #{failqty,jdbcType=DECIMAL},
+      GOODUNITNO = #{goodunitno,jdbcType=VARCHAR},
+      ENGNO = #{engno,jdbcType=VARCHAR},
+      ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      RECIPENO = #{recipeno,jdbcType=VARCHAR},
+      RECIPEVERSION = #{recipeversion,jdbcType=VARCHAR},
+      RECIPESQL = #{recipesql,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      MODULESERIAL = #{moduleserial,jdbcType=VARCHAR},
+      MODULENO = #{moduleno,jdbcType=VARCHAR},
+      MODULEVERSION = #{moduleversion,jdbcType=VARCHAR},
+      PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      AREANO = #{areano,jdbcType=VARCHAR},
+      LOSSQTY = #{lossqty,jdbcType=DECIMAL},
+      COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      CHECKINTIME = #{checkintime,jdbcType=DATE},
+      CHECKOUTTIME = #{checkouttime,jdbcType=DATE},
+      OPGROUPNO = #{opgroupno,jdbcType=VARCHAR},
+      PDLINENO = #{pdlineno,jdbcType=VARCHAR},
+      RI_POSITION = #{riPosition,jdbcType=VARCHAR},
+      JIGNO = #{jigno,jdbcType=VARCHAR},
+      MONO = #{mono,jdbcType=VARCHAR}
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.delta.scm.config.entity.WipLotlogReportEntity">
+    <id column="LOGGROUPSERIAL" jdbcType="VARCHAR" property="loggroupserial" />
+    <result column="BASELOTNO" jdbcType="VARCHAR" property="baselotno" />
+    <result column="LOTNO" jdbcType="VARCHAR" property="lotno" />
+    <result column="OPNO" jdbcType="VARCHAR" property="opno" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="PREOPENDTIME" jdbcType="DATE" property="preopendtime" />
+    <result column="ARRIVETIME" jdbcType="DATE" property="arrivetime" />
+    <result column="STARTTIME" jdbcType="DATE" property="starttime" />
+    <result column="ENDTIME" jdbcType="DATE" property="endtime" />
+    <result column="INPUTQTY" jdbcType="DECIMAL" property="inputqty" />
+    <result column="INPUTUNITNO" jdbcType="VARCHAR" property="inputunitno" />
+    <result column="GOODQTY" jdbcType="DECIMAL" property="goodqty" />
+    <result column="FAILQTY" jdbcType="DECIMAL" property="failqty" />
+    <result column="GOODUNITNO" jdbcType="VARCHAR" property="goodunitno" />
+    <result column="ENGNO" jdbcType="VARCHAR" property="engno" />
+    <result column="ENGVERSION" jdbcType="VARCHAR" property="engversion" />
+    <result column="RECIPENO" jdbcType="VARCHAR" property="recipeno" />
+    <result column="RECIPEVERSION" jdbcType="VARCHAR" property="recipeversion" />
+    <result column="RECIPESQL" jdbcType="VARCHAR" property="recipesql" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="FACTORYNO" jdbcType="VARCHAR" property="factoryno" />
+    <result column="MODULESERIAL" jdbcType="VARCHAR" property="moduleserial" />
+    <result column="MODULENO" jdbcType="VARCHAR" property="moduleno" />
+    <result column="MODULEVERSION" jdbcType="VARCHAR" property="moduleversion" />
+    <result column="PRODUCTNO" jdbcType="VARCHAR" property="productno" />
+    <result column="PRODUCTVERSION" jdbcType="VARCHAR" property="productversion" />
+    <result column="CUSTOMERLOTNO" jdbcType="VARCHAR" property="customerlotno" />
+    <result column="DEVICENO" jdbcType="VARCHAR" property="deviceno" />
+    <result column="AREANO" jdbcType="VARCHAR" property="areano" />
+    <result column="LOSSQTY" jdbcType="DECIMAL" property="lossqty" />
+    <result column="COMPLETEFLAG" jdbcType="DECIMAL" property="completeflag" />
+    <result column="CHECKINTIME" jdbcType="DATE" property="checkintime" />
+    <result column="CHECKOUTTIME" jdbcType="DATE" property="checkouttime" />
+    <result column="OPGROUPNO" jdbcType="VARCHAR" property="opgroupno" />
+    <result column="PDLINENO" jdbcType="VARCHAR" property="pdlineno" />
+    <result column="RI_POSITION" jdbcType="VARCHAR" property="riPosition" />
+    <result column="JIGNO" jdbcType="VARCHAR" property="jigno" />
+    <result column="MONO" jdbcType="VARCHAR" property="mono" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOGGROUPSERIAL, BASELOTNO, LOTNO, OPNO, STATUS, PREOPENDTIME, ARRIVETIME, STARTTIME, 
+    ENDTIME, INPUTQTY, INPUTUNITNO, GOODQTY, FAILQTY, GOODUNITNO, ENGNO, ENGVERSION, 
+    RECIPENO, RECIPEVERSION, RECIPESQL, NODEID, FACTORYNO, MODULESERIAL, MODULENO, MODULEVERSION, 
+    PRODUCTNO, PRODUCTVERSION, CUSTOMERLOTNO, DEVICENO, AREANO, LOSSQTY, COMPLETEFLAG, 
+    CHECKINTIME, CHECKOUTTIME, OPGROUPNO, PDLINENO, RI_POSITION, JIGNO, MONO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TBLWIPLOTLOG_REPORT
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TBLWIPLOTLOG_REPORT
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    insert into TBLWIPLOTLOG_REPORT (LOGGROUPSERIAL, BASELOTNO, LOTNO, 
+      OPNO, STATUS, PREOPENDTIME, 
+      ARRIVETIME, STARTTIME, ENDTIME, 
+      INPUTQTY, INPUTUNITNO, GOODQTY, 
+      FAILQTY, GOODUNITNO, ENGNO, 
+      ENGVERSION, RECIPENO, RECIPEVERSION, 
+      RECIPESQL, NODEID, FACTORYNO, 
+      MODULESERIAL, MODULENO, MODULEVERSION, 
+      PRODUCTNO, PRODUCTVERSION, CUSTOMERLOTNO, 
+      DEVICENO, AREANO, LOSSQTY, 
+      COMPLETEFLAG, CHECKINTIME, CHECKOUTTIME, 
+      OPGROUPNO, PDLINENO, RI_POSITION, 
+      JIGNO, MONO)
+    values (#{loggroupserial,jdbcType=VARCHAR}, #{baselotno,jdbcType=VARCHAR}, #{lotno,jdbcType=VARCHAR}, 
+      #{opno,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{preopendtime,jdbcType=DATE}, 
+      #{arrivetime,jdbcType=DATE}, #{starttime,jdbcType=DATE}, #{endtime,jdbcType=DATE}, 
+      #{inputqty,jdbcType=DECIMAL}, #{inputunitno,jdbcType=VARCHAR}, #{goodqty,jdbcType=DECIMAL}, 
+      #{failqty,jdbcType=DECIMAL}, #{goodunitno,jdbcType=VARCHAR}, #{engno,jdbcType=VARCHAR}, 
+      #{engversion,jdbcType=VARCHAR}, #{recipeno,jdbcType=VARCHAR}, #{recipeversion,jdbcType=VARCHAR}, 
+      #{recipesql,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{factoryno,jdbcType=VARCHAR}, 
+      #{moduleserial,jdbcType=VARCHAR}, #{moduleno,jdbcType=VARCHAR}, #{moduleversion,jdbcType=VARCHAR}, 
+      #{productno,jdbcType=VARCHAR}, #{productversion,jdbcType=VARCHAR}, #{customerlotno,jdbcType=VARCHAR}, 
+      #{deviceno,jdbcType=VARCHAR}, #{areano,jdbcType=VARCHAR}, #{lossqty,jdbcType=DECIMAL}, 
+      #{completeflag,jdbcType=DECIMAL}, #{checkintime,jdbcType=DATE}, #{checkouttime,jdbcType=DATE}, 
+      #{opgroupno,jdbcType=VARCHAR}, #{pdlineno,jdbcType=VARCHAR}, #{riPosition,jdbcType=VARCHAR}, 
+      #{jigno,jdbcType=VARCHAR}, #{mono,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    insert into TBLWIPLOTLOG_REPORT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loggroupserial != null">
+        LOGGROUPSERIAL,
+      </if>
+      <if test="baselotno != null">
+        BASELOTNO,
+      </if>
+      <if test="lotno != null">
+        LOTNO,
+      </if>
+      <if test="opno != null">
+        OPNO,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="preopendtime != null">
+        PREOPENDTIME,
+      </if>
+      <if test="arrivetime != null">
+        ARRIVETIME,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="inputqty != null">
+        INPUTQTY,
+      </if>
+      <if test="inputunitno != null">
+        INPUTUNITNO,
+      </if>
+      <if test="goodqty != null">
+        GOODQTY,
+      </if>
+      <if test="failqty != null">
+        FAILQTY,
+      </if>
+      <if test="goodunitno != null">
+        GOODUNITNO,
+      </if>
+      <if test="engno != null">
+        ENGNO,
+      </if>
+      <if test="engversion != null">
+        ENGVERSION,
+      </if>
+      <if test="recipeno != null">
+        RECIPENO,
+      </if>
+      <if test="recipeversion != null">
+        RECIPEVERSION,
+      </if>
+      <if test="recipesql != null">
+        RECIPESQL,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO,
+      </if>
+      <if test="moduleserial != null">
+        MODULESERIAL,
+      </if>
+      <if test="moduleno != null">
+        MODULENO,
+      </if>
+      <if test="moduleversion != null">
+        MODULEVERSION,
+      </if>
+      <if test="productno != null">
+        PRODUCTNO,
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION,
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO,
+      </if>
+      <if test="deviceno != null">
+        DEVICENO,
+      </if>
+      <if test="areano != null">
+        AREANO,
+      </if>
+      <if test="lossqty != null">
+        LOSSQTY,
+      </if>
+      <if test="completeflag != null">
+        COMPLETEFLAG,
+      </if>
+      <if test="checkintime != null">
+        CHECKINTIME,
+      </if>
+      <if test="checkouttime != null">
+        CHECKOUTTIME,
+      </if>
+      <if test="opgroupno != null">
+        OPGROUPNO,
+      </if>
+      <if test="pdlineno != null">
+        PDLINENO,
+      </if>
+      <if test="riPosition != null">
+        RI_POSITION,
+      </if>
+      <if test="jigno != null">
+        JIGNO,
+      </if>
+      <if test="mono != null">
+        MONO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loggroupserial != null">
+        #{loggroupserial,jdbcType=VARCHAR},
+      </if>
+      <if test="baselotno != null">
+        #{baselotno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotno != null">
+        #{lotno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="preopendtime != null">
+        #{preopendtime,jdbcType=DATE},
+      </if>
+      <if test="arrivetime != null">
+        #{arrivetime,jdbcType=DATE},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="inputqty != null">
+        #{inputqty,jdbcType=DECIMAL},
+      </if>
+      <if test="inputunitno != null">
+        #{inputunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodqty != null">
+        #{goodqty,jdbcType=DECIMAL},
+      </if>
+      <if test="failqty != null">
+        #{failqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goodunitno != null">
+        #{goodunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="engno != null">
+        #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeno != null">
+        #{recipeno,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeversion != null">
+        #{recipeversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipesql != null">
+        #{recipesql,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryno != null">
+        #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleserial != null">
+        #{moduleserial,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleno != null">
+        #{moduleno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleversion != null">
+        #{moduleversion,jdbcType=VARCHAR},
+      </if>
+      <if test="productno != null">
+        #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="areano != null">
+        #{areano,jdbcType=VARCHAR},
+      </if>
+      <if test="lossqty != null">
+        #{lossqty,jdbcType=DECIMAL},
+      </if>
+      <if test="completeflag != null">
+        #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="checkintime != null">
+        #{checkintime,jdbcType=DATE},
+      </if>
+      <if test="checkouttime != null">
+        #{checkouttime,jdbcType=DATE},
+      </if>
+      <if test="opgroupno != null">
+        #{opgroupno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdlineno != null">
+        #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="riPosition != null">
+        #{riPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="jigno != null">
+        #{jigno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        #{mono,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    update TBLWIPLOTLOG_REPORT
+    <set>
+      <if test="baselotno != null">
+        BASELOTNO = #{baselotno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotno != null">
+        LOTNO = #{lotno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        OPNO = #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="preopendtime != null">
+        PREOPENDTIME = #{preopendtime,jdbcType=DATE},
+      </if>
+      <if test="arrivetime != null">
+        ARRIVETIME = #{arrivetime,jdbcType=DATE},
+      </if>
+      <if test="starttime != null">
+        STARTTIME = #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        ENDTIME = #{endtime,jdbcType=DATE},
+      </if>
+      <if test="inputqty != null">
+        INPUTQTY = #{inputqty,jdbcType=DECIMAL},
+      </if>
+      <if test="inputunitno != null">
+        INPUTUNITNO = #{inputunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodqty != null">
+        GOODQTY = #{goodqty,jdbcType=DECIMAL},
+      </if>
+      <if test="failqty != null">
+        FAILQTY = #{failqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goodunitno != null">
+        GOODUNITNO = #{goodunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="engno != null">
+        ENGNO = #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeno != null">
+        RECIPENO = #{recipeno,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeversion != null">
+        RECIPEVERSION = #{recipeversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipesql != null">
+        RECIPESQL = #{recipesql,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleserial != null">
+        MODULESERIAL = #{moduleserial,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleno != null">
+        MODULENO = #{moduleno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleversion != null">
+        MODULEVERSION = #{moduleversion,jdbcType=VARCHAR},
+      </if>
+      <if test="productno != null">
+        PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="areano != null">
+        AREANO = #{areano,jdbcType=VARCHAR},
+      </if>
+      <if test="lossqty != null">
+        LOSSQTY = #{lossqty,jdbcType=DECIMAL},
+      </if>
+      <if test="completeflag != null">
+        COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="checkintime != null">
+        CHECKINTIME = #{checkintime,jdbcType=DATE},
+      </if>
+      <if test="checkouttime != null">
+        CHECKOUTTIME = #{checkouttime,jdbcType=DATE},
+      </if>
+      <if test="opgroupno != null">
+        OPGROUPNO = #{opgroupno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdlineno != null">
+        PDLINENO = #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="riPosition != null">
+        RI_POSITION = #{riPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="jigno != null">
+        JIGNO = #{jigno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        MONO = #{mono,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    update TBLWIPLOTLOG_REPORT
+    set BASELOTNO = #{baselotno,jdbcType=VARCHAR},
+      LOTNO = #{lotno,jdbcType=VARCHAR},
+      OPNO = #{opno,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      PREOPENDTIME = #{preopendtime,jdbcType=DATE},
+      ARRIVETIME = #{arrivetime,jdbcType=DATE},
+      STARTTIME = #{starttime,jdbcType=DATE},
+      ENDTIME = #{endtime,jdbcType=DATE},
+      INPUTQTY = #{inputqty,jdbcType=DECIMAL},
+      INPUTUNITNO = #{inputunitno,jdbcType=VARCHAR},
+      GOODQTY = #{goodqty,jdbcType=DECIMAL},
+      FAILQTY = #{failqty,jdbcType=DECIMAL},
+      GOODUNITNO = #{goodunitno,jdbcType=VARCHAR},
+      ENGNO = #{engno,jdbcType=VARCHAR},
+      ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      RECIPENO = #{recipeno,jdbcType=VARCHAR},
+      RECIPEVERSION = #{recipeversion,jdbcType=VARCHAR},
+      RECIPESQL = #{recipesql,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      MODULESERIAL = #{moduleserial,jdbcType=VARCHAR},
+      MODULENO = #{moduleno,jdbcType=VARCHAR},
+      MODULEVERSION = #{moduleversion,jdbcType=VARCHAR},
+      PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      AREANO = #{areano,jdbcType=VARCHAR},
+      LOSSQTY = #{lossqty,jdbcType=DECIMAL},
+      COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      CHECKINTIME = #{checkintime,jdbcType=DATE},
+      CHECKOUTTIME = #{checkouttime,jdbcType=DATE},
+      OPGROUPNO = #{opgroupno,jdbcType=VARCHAR},
+      PDLINENO = #{pdlineno,jdbcType=VARCHAR},
+      RI_POSITION = #{riPosition,jdbcType=VARCHAR},
+      JIGNO = #{jigno,jdbcType=VARCHAR},
+      MONO = #{mono,jdbcType=VARCHAR}
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.delta.scm.config.entity.WipLotlogReportEntity">
+    <id column="LOGGROUPSERIAL" jdbcType="VARCHAR" property="loggroupserial" />
+    <result column="BASELOTNO" jdbcType="VARCHAR" property="baselotno" />
+    <result column="LOTNO" jdbcType="VARCHAR" property="lotno" />
+    <result column="OPNO" jdbcType="VARCHAR" property="opno" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="PREOPENDTIME" jdbcType="DATE" property="preopendtime" />
+    <result column="ARRIVETIME" jdbcType="DATE" property="arrivetime" />
+    <result column="STARTTIME" jdbcType="DATE" property="starttime" />
+    <result column="ENDTIME" jdbcType="DATE" property="endtime" />
+    <result column="INPUTQTY" jdbcType="DECIMAL" property="inputqty" />
+    <result column="INPUTUNITNO" jdbcType="VARCHAR" property="inputunitno" />
+    <result column="GOODQTY" jdbcType="DECIMAL" property="goodqty" />
+    <result column="FAILQTY" jdbcType="DECIMAL" property="failqty" />
+    <result column="GOODUNITNO" jdbcType="VARCHAR" property="goodunitno" />
+    <result column="ENGNO" jdbcType="VARCHAR" property="engno" />
+    <result column="ENGVERSION" jdbcType="VARCHAR" property="engversion" />
+    <result column="RECIPENO" jdbcType="VARCHAR" property="recipeno" />
+    <result column="RECIPEVERSION" jdbcType="VARCHAR" property="recipeversion" />
+    <result column="RECIPESQL" jdbcType="VARCHAR" property="recipesql" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="FACTORYNO" jdbcType="VARCHAR" property="factoryno" />
+    <result column="MODULESERIAL" jdbcType="VARCHAR" property="moduleserial" />
+    <result column="MODULENO" jdbcType="VARCHAR" property="moduleno" />
+    <result column="MODULEVERSION" jdbcType="VARCHAR" property="moduleversion" />
+    <result column="PRODUCTNO" jdbcType="VARCHAR" property="productno" />
+    <result column="PRODUCTVERSION" jdbcType="VARCHAR" property="productversion" />
+    <result column="CUSTOMERLOTNO" jdbcType="VARCHAR" property="customerlotno" />
+    <result column="DEVICENO" jdbcType="VARCHAR" property="deviceno" />
+    <result column="AREANO" jdbcType="VARCHAR" property="areano" />
+    <result column="LOSSQTY" jdbcType="DECIMAL" property="lossqty" />
+    <result column="COMPLETEFLAG" jdbcType="DECIMAL" property="completeflag" />
+    <result column="CHECKINTIME" jdbcType="DATE" property="checkintime" />
+    <result column="CHECKOUTTIME" jdbcType="DATE" property="checkouttime" />
+    <result column="OPGROUPNO" jdbcType="VARCHAR" property="opgroupno" />
+    <result column="PDLINENO" jdbcType="VARCHAR" property="pdlineno" />
+    <result column="RI_POSITION" jdbcType="VARCHAR" property="riPosition" />
+    <result column="JIGNO" jdbcType="VARCHAR" property="jigno" />
+    <result column="MONO" jdbcType="VARCHAR" property="mono" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    LOGGROUPSERIAL, BASELOTNO, LOTNO, OPNO, STATUS, PREOPENDTIME, ARRIVETIME, STARTTIME, 
+    ENDTIME, INPUTQTY, INPUTUNITNO, GOODQTY, FAILQTY, GOODUNITNO, ENGNO, ENGVERSION, 
+    RECIPENO, RECIPEVERSION, RECIPESQL, NODEID, FACTORYNO, MODULESERIAL, MODULENO, MODULEVERSION, 
+    PRODUCTNO, PRODUCTVERSION, CUSTOMERLOTNO, DEVICENO, AREANO, LOSSQTY, COMPLETEFLAG, 
+    CHECKINTIME, CHECKOUTTIME, OPGROUPNO, PDLINENO, RI_POSITION, JIGNO, MONO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TBLWIPLOTLOG_REPORT
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TBLWIPLOTLOG_REPORT
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    insert into TBLWIPLOTLOG_REPORT (LOGGROUPSERIAL, BASELOTNO, LOTNO, 
+      OPNO, STATUS, PREOPENDTIME, 
+      ARRIVETIME, STARTTIME, ENDTIME, 
+      INPUTQTY, INPUTUNITNO, GOODQTY, 
+      FAILQTY, GOODUNITNO, ENGNO, 
+      ENGVERSION, RECIPENO, RECIPEVERSION, 
+      RECIPESQL, NODEID, FACTORYNO, 
+      MODULESERIAL, MODULENO, MODULEVERSION, 
+      PRODUCTNO, PRODUCTVERSION, CUSTOMERLOTNO, 
+      DEVICENO, AREANO, LOSSQTY, 
+      COMPLETEFLAG, CHECKINTIME, CHECKOUTTIME, 
+      OPGROUPNO, PDLINENO, RI_POSITION, 
+      JIGNO, MONO)
+    values (#{loggroupserial,jdbcType=VARCHAR}, #{baselotno,jdbcType=VARCHAR}, #{lotno,jdbcType=VARCHAR}, 
+      #{opno,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{preopendtime,jdbcType=DATE}, 
+      #{arrivetime,jdbcType=DATE}, #{starttime,jdbcType=DATE}, #{endtime,jdbcType=DATE}, 
+      #{inputqty,jdbcType=DECIMAL}, #{inputunitno,jdbcType=VARCHAR}, #{goodqty,jdbcType=DECIMAL}, 
+      #{failqty,jdbcType=DECIMAL}, #{goodunitno,jdbcType=VARCHAR}, #{engno,jdbcType=VARCHAR}, 
+      #{engversion,jdbcType=VARCHAR}, #{recipeno,jdbcType=VARCHAR}, #{recipeversion,jdbcType=VARCHAR}, 
+      #{recipesql,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, #{factoryno,jdbcType=VARCHAR}, 
+      #{moduleserial,jdbcType=VARCHAR}, #{moduleno,jdbcType=VARCHAR}, #{moduleversion,jdbcType=VARCHAR}, 
+      #{productno,jdbcType=VARCHAR}, #{productversion,jdbcType=VARCHAR}, #{customerlotno,jdbcType=VARCHAR}, 
+      #{deviceno,jdbcType=VARCHAR}, #{areano,jdbcType=VARCHAR}, #{lossqty,jdbcType=DECIMAL}, 
+      #{completeflag,jdbcType=DECIMAL}, #{checkintime,jdbcType=DATE}, #{checkouttime,jdbcType=DATE}, 
+      #{opgroupno,jdbcType=VARCHAR}, #{pdlineno,jdbcType=VARCHAR}, #{riPosition,jdbcType=VARCHAR}, 
+      #{jigno,jdbcType=VARCHAR}, #{mono,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    insert into TBLWIPLOTLOG_REPORT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loggroupserial != null">
+        LOGGROUPSERIAL,
+      </if>
+      <if test="baselotno != null">
+        BASELOTNO,
+      </if>
+      <if test="lotno != null">
+        LOTNO,
+      </if>
+      <if test="opno != null">
+        OPNO,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="preopendtime != null">
+        PREOPENDTIME,
+      </if>
+      <if test="arrivetime != null">
+        ARRIVETIME,
+      </if>
+      <if test="starttime != null">
+        STARTTIME,
+      </if>
+      <if test="endtime != null">
+        ENDTIME,
+      </if>
+      <if test="inputqty != null">
+        INPUTQTY,
+      </if>
+      <if test="inputunitno != null">
+        INPUTUNITNO,
+      </if>
+      <if test="goodqty != null">
+        GOODQTY,
+      </if>
+      <if test="failqty != null">
+        FAILQTY,
+      </if>
+      <if test="goodunitno != null">
+        GOODUNITNO,
+      </if>
+      <if test="engno != null">
+        ENGNO,
+      </if>
+      <if test="engversion != null">
+        ENGVERSION,
+      </if>
+      <if test="recipeno != null">
+        RECIPENO,
+      </if>
+      <if test="recipeversion != null">
+        RECIPEVERSION,
+      </if>
+      <if test="recipesql != null">
+        RECIPESQL,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO,
+      </if>
+      <if test="moduleserial != null">
+        MODULESERIAL,
+      </if>
+      <if test="moduleno != null">
+        MODULENO,
+      </if>
+      <if test="moduleversion != null">
+        MODULEVERSION,
+      </if>
+      <if test="productno != null">
+        PRODUCTNO,
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION,
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO,
+      </if>
+      <if test="deviceno != null">
+        DEVICENO,
+      </if>
+      <if test="areano != null">
+        AREANO,
+      </if>
+      <if test="lossqty != null">
+        LOSSQTY,
+      </if>
+      <if test="completeflag != null">
+        COMPLETEFLAG,
+      </if>
+      <if test="checkintime != null">
+        CHECKINTIME,
+      </if>
+      <if test="checkouttime != null">
+        CHECKOUTTIME,
+      </if>
+      <if test="opgroupno != null">
+        OPGROUPNO,
+      </if>
+      <if test="pdlineno != null">
+        PDLINENO,
+      </if>
+      <if test="riPosition != null">
+        RI_POSITION,
+      </if>
+      <if test="jigno != null">
+        JIGNO,
+      </if>
+      <if test="mono != null">
+        MONO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loggroupserial != null">
+        #{loggroupserial,jdbcType=VARCHAR},
+      </if>
+      <if test="baselotno != null">
+        #{baselotno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotno != null">
+        #{lotno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="preopendtime != null">
+        #{preopendtime,jdbcType=DATE},
+      </if>
+      <if test="arrivetime != null">
+        #{arrivetime,jdbcType=DATE},
+      </if>
+      <if test="starttime != null">
+        #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        #{endtime,jdbcType=DATE},
+      </if>
+      <if test="inputqty != null">
+        #{inputqty,jdbcType=DECIMAL},
+      </if>
+      <if test="inputunitno != null">
+        #{inputunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodqty != null">
+        #{goodqty,jdbcType=DECIMAL},
+      </if>
+      <if test="failqty != null">
+        #{failqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goodunitno != null">
+        #{goodunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="engno != null">
+        #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeno != null">
+        #{recipeno,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeversion != null">
+        #{recipeversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipesql != null">
+        #{recipesql,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryno != null">
+        #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleserial != null">
+        #{moduleserial,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleno != null">
+        #{moduleno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleversion != null">
+        #{moduleversion,jdbcType=VARCHAR},
+      </if>
+      <if test="productno != null">
+        #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="areano != null">
+        #{areano,jdbcType=VARCHAR},
+      </if>
+      <if test="lossqty != null">
+        #{lossqty,jdbcType=DECIMAL},
+      </if>
+      <if test="completeflag != null">
+        #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="checkintime != null">
+        #{checkintime,jdbcType=DATE},
+      </if>
+      <if test="checkouttime != null">
+        #{checkouttime,jdbcType=DATE},
+      </if>
+      <if test="opgroupno != null">
+        #{opgroupno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdlineno != null">
+        #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="riPosition != null">
+        #{riPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="jigno != null">
+        #{jigno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        #{mono,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    update TBLWIPLOTLOG_REPORT
+    <set>
+      <if test="baselotno != null">
+        BASELOTNO = #{baselotno,jdbcType=VARCHAR},
+      </if>
+      <if test="lotno != null">
+        LOTNO = #{lotno,jdbcType=VARCHAR},
+      </if>
+      <if test="opno != null">
+        OPNO = #{opno,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="preopendtime != null">
+        PREOPENDTIME = #{preopendtime,jdbcType=DATE},
+      </if>
+      <if test="arrivetime != null">
+        ARRIVETIME = #{arrivetime,jdbcType=DATE},
+      </if>
+      <if test="starttime != null">
+        STARTTIME = #{starttime,jdbcType=DATE},
+      </if>
+      <if test="endtime != null">
+        ENDTIME = #{endtime,jdbcType=DATE},
+      </if>
+      <if test="inputqty != null">
+        INPUTQTY = #{inputqty,jdbcType=DECIMAL},
+      </if>
+      <if test="inputunitno != null">
+        INPUTUNITNO = #{inputunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="goodqty != null">
+        GOODQTY = #{goodqty,jdbcType=DECIMAL},
+      </if>
+      <if test="failqty != null">
+        FAILQTY = #{failqty,jdbcType=DECIMAL},
+      </if>
+      <if test="goodunitno != null">
+        GOODUNITNO = #{goodunitno,jdbcType=VARCHAR},
+      </if>
+      <if test="engno != null">
+        ENGNO = #{engno,jdbcType=VARCHAR},
+      </if>
+      <if test="engversion != null">
+        ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeno != null">
+        RECIPENO = #{recipeno,jdbcType=VARCHAR},
+      </if>
+      <if test="recipeversion != null">
+        RECIPEVERSION = #{recipeversion,jdbcType=VARCHAR},
+      </if>
+      <if test="recipesql != null">
+        RECIPESQL = #{recipesql,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryno != null">
+        FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleserial != null">
+        MODULESERIAL = #{moduleserial,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleno != null">
+        MODULENO = #{moduleno,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleversion != null">
+        MODULEVERSION = #{moduleversion,jdbcType=VARCHAR},
+      </if>
+      <if test="productno != null">
+        PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      </if>
+      <if test="productversion != null">
+        PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      </if>
+      <if test="customerlotno != null">
+        CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="areano != null">
+        AREANO = #{areano,jdbcType=VARCHAR},
+      </if>
+      <if test="lossqty != null">
+        LOSSQTY = #{lossqty,jdbcType=DECIMAL},
+      </if>
+      <if test="completeflag != null">
+        COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      </if>
+      <if test="checkintime != null">
+        CHECKINTIME = #{checkintime,jdbcType=DATE},
+      </if>
+      <if test="checkouttime != null">
+        CHECKOUTTIME = #{checkouttime,jdbcType=DATE},
+      </if>
+      <if test="opgroupno != null">
+        OPGROUPNO = #{opgroupno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdlineno != null">
+        PDLINENO = #{pdlineno,jdbcType=VARCHAR},
+      </if>
+      <if test="riPosition != null">
+        RI_POSITION = #{riPosition,jdbcType=VARCHAR},
+      </if>
+      <if test="jigno != null">
+        JIGNO = #{jigno,jdbcType=VARCHAR},
+      </if>
+      <if test="mono != null">
+        MONO = #{mono,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.delta.scm.config.entity.WipLotlogReportEntity">
+    update TBLWIPLOTLOG_REPORT
+    set BASELOTNO = #{baselotno,jdbcType=VARCHAR},
+      LOTNO = #{lotno,jdbcType=VARCHAR},
+      OPNO = #{opno,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      PREOPENDTIME = #{preopendtime,jdbcType=DATE},
+      ARRIVETIME = #{arrivetime,jdbcType=DATE},
+      STARTTIME = #{starttime,jdbcType=DATE},
+      ENDTIME = #{endtime,jdbcType=DATE},
+      INPUTQTY = #{inputqty,jdbcType=DECIMAL},
+      INPUTUNITNO = #{inputunitno,jdbcType=VARCHAR},
+      GOODQTY = #{goodqty,jdbcType=DECIMAL},
+      FAILQTY = #{failqty,jdbcType=DECIMAL},
+      GOODUNITNO = #{goodunitno,jdbcType=VARCHAR},
+      ENGNO = #{engno,jdbcType=VARCHAR},
+      ENGVERSION = #{engversion,jdbcType=VARCHAR},
+      RECIPENO = #{recipeno,jdbcType=VARCHAR},
+      RECIPEVERSION = #{recipeversion,jdbcType=VARCHAR},
+      RECIPESQL = #{recipesql,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      FACTORYNO = #{factoryno,jdbcType=VARCHAR},
+      MODULESERIAL = #{moduleserial,jdbcType=VARCHAR},
+      MODULENO = #{moduleno,jdbcType=VARCHAR},
+      MODULEVERSION = #{moduleversion,jdbcType=VARCHAR},
+      PRODUCTNO = #{productno,jdbcType=VARCHAR},
+      PRODUCTVERSION = #{productversion,jdbcType=VARCHAR},
+      CUSTOMERLOTNO = #{customerlotno,jdbcType=VARCHAR},
+      DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      AREANO = #{areano,jdbcType=VARCHAR},
+      LOSSQTY = #{lossqty,jdbcType=DECIMAL},
+      COMPLETEFLAG = #{completeflag,jdbcType=DECIMAL},
+      CHECKINTIME = #{checkintime,jdbcType=DATE},
+      CHECKOUTTIME = #{checkouttime,jdbcType=DATE},
+      OPGROUPNO = #{opgroupno,jdbcType=VARCHAR},
+      PDLINENO = #{pdlineno,jdbcType=VARCHAR},
+      RI_POSITION = #{riPosition,jdbcType=VARCHAR},
+      JIGNO = #{jigno,jdbcType=VARCHAR},
+      MONO = #{mono,jdbcType=VARCHAR}
+    where LOGGROUPSERIAL = #{loggroupserial,jdbcType=VARCHAR}
+  </update>
+</mapper>
